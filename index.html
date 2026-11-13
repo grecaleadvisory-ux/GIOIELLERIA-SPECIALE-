@@ -1,0 +1,1615 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Gioielleria Speciale a Partinico: alta gioielleria, diamanti certificati, oro 750 e laboratorio orafo.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230B0A09'/%3E%3Ctext x='32' y='45' font-family='Futura,Jost,sans-serif' font-size='40' text-anchor='middle' fill='%23C9A45E'%3ES%3C/text%3E%3C/svg%3E">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Speciale in Sezione Aurea</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* Layout: a golden-section film. Every frame is cut 1 : 1.618, the subject sits on the golden point, spacing follows Fibonacci (8·13·21·34·55·89·144). One committed dark grade. */
+:root{
+  color-scheme:dark;
+  --ink:#0B0A09; --ink-2:#14120F; --ink-3:#1D1A16;
+  --ivory:#EFE9DE; --ivory-2:#B5AC9D; --ivory-3:#7D766A;
+  --gold:#C9A45E; --gold-2:#8C6F3E;
+  --line:rgba(239,233,222,.14);
+  --display:"Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --sans:"Jost", "Futura", "Century Gothic", "Avenir Next", system-ui, sans-serif;
+  --phi:1.618; --phi-i:.618;
+  --f1:8px; --f2:13px; --f3:21px; --f4:34px; --f5:55px; --f6:89px; --f7:144px;
+  --gl:max(16px, env(safe-area-inset-left, 0px)); --gr:max(16px, env(safe-area-inset-right, 0px));
+  --sat:env(safe-area-inset-top, 0px); --sab:env(safe-area-inset-bottom, 0px);
+  --vh:calc(100vh - var(--sat) - var(--sab));
+}
+@supports (height:100svh){ :root{ --vh:calc(100svh - var(--sat) - var(--sab)) } }
+*{box-sizing:border-box}
+html{background:var(--ink)}
+body{margin:0; background:var(--ink); color:var(--ivory); font:300 17px/1.618 var(--sans); -webkit-font-smoothing:antialiased; overflow-x:clip}
+body::before{content:""; position:fixed; inset:0 0 auto; height:var(--sat); z-index:80; background:var(--ink)}
+a{color:inherit; text-decoration:none}
+button{font:inherit; color:inherit; background:none; border:0; padding:0; cursor:pointer}
+h1,h2,h3{font-family:var(--display); font-weight:400; margin:0; text-wrap:balance; letter-spacing:-.01em}
+p{margin:0}
+em{font-style:italic}
+:focus-visible{outline:1px solid var(--gold); outline-offset:4px}
+.wrap{max-width:1440px; margin:0 auto; padding-left:var(--gl); padding-right:var(--gr)}
+.eb{font:500 11px/1.4 var(--sans); letter-spacing:.32em; text-transform:uppercase; color:var(--gold)}
+.mut{color:var(--ivory-2)}
+.num{font-variant-numeric:tabular-nums lining-nums}
+.btn{display:inline-flex; align-items:center; gap:var(--f2); min-height:55px; padding:0 var(--f4); border:1px solid var(--ivory); font:500 11.5px/1 var(--sans); letter-spacing:.28em; text-transform:uppercase; transition:background .35s, color .35s, border-color .35s; position:relative; overflow:hidden}
+.btn:hover{background:var(--ivory); color:var(--ink)}
+.btn.gold{border-color:var(--gold); background:var(--gold); color:var(--ink)}
+.btn.gold:hover{background:transparent; color:var(--gold)}
+.btn .ar{font-family:var(--sans); letter-spacing:0}
+.lnk{font:500 11.5px/1 var(--sans); letter-spacing:.28em; text-transform:uppercase; display:inline-flex; gap:var(--f2); align-items:center; padding-bottom:var(--f1); border-bottom:1px solid currentColor; transition:color .3s}
+.lnk:hover{color:var(--gold)}
+
+/* grain + vignette */
+#grain{position:fixed; inset:-50%; z-index:90; pointer-events:none; opacity:.075; mix-blend-mode:overlay; animation:grain 1s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-4%)}60%{transform:translate(-4%,-1%)}80%{transform:translate(3%,3%)}100%{transform:translate(0,0)}}
+
+/* intro */
+#intro{position:fixed; inset:0; z-index:100; background:var(--ink); display:grid; place-items:center; transition:opacity .9s .25s, visibility .9s .25s; cursor:pointer}
+#intro.out{opacity:0; visibility:hidden}
+#intro .bars i{position:absolute; left:0; right:0; height:50%; background:#000; transition:transform 1.2s cubic-bezier(.7,0,.2,1)}
+#intro .bars i:first-child{top:0; transform:translateY(-62%)}
+#intro .bars i:last-child{bottom:0; transform:translateY(62%)}
+#intro.out .bars i:first-child{transform:translateY(-100%)}
+#intro.out .bars i:last-child{transform:translateY(100%)}
+.ilogo{position:relative; display:grid; justify-items:center; gap:var(--f2); z-index:2}
+.ilogo .l1{font:400 12px/1 var(--sans); letter-spacing:.9em; margin-right:-.9em; text-transform:uppercase; color:var(--ivory-2); opacity:0; animation:inl1 1.6s .2s cubic-bezier(.2,.7,.2,1) forwards}
+.ilogo .l2{display:flex; font:400 clamp(44px,8vw,89px)/.9 var(--sans); letter-spacing:.08em; margin-right:-.08em; text-transform:uppercase}
+.ilogo .l2 span{opacity:0; transform:translateY(40%); filter:blur(8px); animation:inl2 1.1s cubic-bezier(.2,.7,.2,1) forwards}
+.ilogo .rule{width:min(377px,62vw); height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); transform:scaleX(0); animation:rule 1.6s .7s cubic-bezier(.7,0,.2,1) forwards}
+.ilogo .st{font:400 11px/1 var(--sans); letter-spacing:.32em; text-transform:uppercase; color:var(--ivory-3); margin-top:var(--f3); opacity:0; animation:inl1 1s 1s forwards}
+@keyframes inl1{to{opacity:1; letter-spacing:.62em}}
+@keyframes inl2{to{opacity:1; transform:none; filter:none}}
+@keyframes rule{to{transform:none}}
+
+/* nav */
+.nav{position:fixed; left:0; right:0; top:0; z-index:60; padding-top:var(--sat); transition:transform .5s cubic-bezier(.2,.7,.2,1), background .5s}
+.nav.solid{background:linear-gradient(var(--ink) 30%, rgba(11,10,9,0))}
+.nav.hide{transform:translateY(-110%)}
+.nav-in{display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:var(--f3); padding-block:var(--f3)}
+.nav .side{display:flex; gap:var(--f4); font:400 11.5px/1 var(--sans); letter-spacing:.24em; text-transform:uppercase}
+.nav .side.r{justify-content:flex-end}
+.nav .side a{color:var(--ivory-2); transition:color .3s}
+.nav .side a:hover{color:var(--ivory)}
+.nav .side a.shop{color:var(--gold)}
+.logo{display:grid; justify-items:center; gap:6px}
+.logo .l1{font:400 9px/1 var(--sans); letter-spacing:.66em; margin-right:-.66em; text-transform:uppercase; color:var(--ivory-2)}
+.logo .l2{font:400 24px/.9 var(--sans); letter-spacing:.08em; margin-right:-.08em; text-transform:uppercase}
+.menu-b{display:none; justify-self:start; width:44px; height:44px; place-items:center}
+.menu-b i{display:block; width:21px; height:1px; background:var(--ivory); box-shadow:0 6px 0 var(--ivory)}
+.mshop{display:none; justify-self:end; font:500 11px/1 var(--sans); letter-spacing:.22em; text-transform:uppercase; color:var(--gold)}
+.mmenu{position:fixed; inset:0; z-index:70; background:var(--ink); display:grid; align-content:center; gap:var(--f3); padding:calc(var(--sat) + 89px) var(--gr) calc(var(--sab) + 55px) var(--gl); transform:translateY(-100%); transition:transform .7s cubic-bezier(.7,0,.2,1)}
+.mmenu.on{transform:none}
+.mmenu a{font:400 clamp(34px,10vw,55px)/1.1 var(--display)}
+.mmenu a em{color:var(--gold)}
+.mmenu .x{position:absolute; top:calc(var(--sat) + 21px); right:var(--gr); font:500 11px/1 var(--sans); letter-spacing:.28em; text-transform:uppercase}
+@media (max-width:980px){ .nav .side{display:none} .menu-b{display:grid} .mshop{display:block} }
+
+/* live footage */
+a.live{display:block}
+.live{position:relative; overflow:hidden; background:radial-gradient(120% 90% at 62% 40%, var(--ink-3), var(--ink) 70%)}
+.live canvas{position:absolute; inset:0; width:100%; height:100%; display:block; opacity:0; transition:opacity 1.6s ease}
+.live.on canvas{opacity:1}
+.live .kb{position:absolute; inset:0; animation:kb 21s ease-in-out infinite alternate; will-change:transform}
+@keyframes kb{from{transform:scale(1.0)} to{transform:scale(1.055)}}
+.live::after{content:""; position:absolute; inset:0; pointer-events:none; background:radial-gradient(130% 100% at 55% 45%, transparent 55%, rgba(0,0,0,.55))}
+.live .wait{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); font:italic 400 34px/1 var(--display); color:rgba(239,233,222,.08); transition:opacity .8s}
+.live.on .wait{opacity:0}
+.live[data-tone="light"]{background:radial-gradient(120% 90% at 62% 40%, #EEEDEA, #D9D6D0 70%)}
+.live[data-tone="blush"]{background:radial-gradient(120% 90% at 62% 40%, #EEE2DC, #D5BFB6 70%)}
+.live[data-tone="sea"]{background:radial-gradient(120% 90% at 62% 40%, #1B3536, #0B1718 70%)}
+.live[data-tone="light"]::after,.live[data-tone="blush"]::after{background:radial-gradient(130% 100% at 55% 45%, transparent 60%, rgba(0,0,0,.28))}
+
+/* reveal */
+.js .rv{opacity:0; transform:translateY(21px); transition:opacity 1.2s cubic-bezier(.2,.7,.2,1), transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1; transform:none}
+.js .rv.d1{transition-delay:.12s} .js .rv.d2{transition-delay:.24s} .js .rv.d3{transition-delay:.36s}
+.mask{display:block; overflow:hidden; padding-bottom:.08em}
+.mask > span{display:block}
+.js .mask > span{transform:translateY(105%); transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.js .in .mask > span, .js .mask.in > span{transform:none}
+.js .in .mask:nth-child(2) > span{transition-delay:.1s}
+.js .in .mask:nth-child(3) > span{transition-delay:.2s}
+
+/* pinned scenes */
+.pin{position:relative}
+.stage{position:sticky; top:var(--sat); height:var(--vh); overflow:hidden}
+
+/* hero */
+.hero{height:calc(var(--vh) * 2)}
+.hero .live{position:absolute; inset:0; transform:scale(calc(1 + var(--p, 0) * .14)); transform-origin:62% 40%}
+.hero .shade{position:absolute; inset:0; background:linear-gradient(90deg, rgba(11,10,9,.82) 0%, rgba(11,10,9,.35) 38.2%, transparent 61.8%); pointer-events:none}
+.flare{position:absolute; left:62%; top:40%; width:140vw; height:3px; margin-left:-70vw; background:linear-gradient(90deg, transparent, rgba(150,180,255,.0) 20%, rgba(180,200,255,.35) 46%, rgba(255,255,255,.55) 50%, rgba(180,200,255,.35) 54%, transparent 80%); filter:blur(1.5px); mix-blend-mode:screen; pointer-events:none; animation:flare 9s ease-in-out infinite; opacity:.0}
+@keyframes flare{0%,100%{opacity:0; transform:translateX(-6vw) scaleX(.6)} 45%{opacity:.85} 55%{opacity:.85; transform:translateX(6vw) scaleX(1)}}
+.lbox i{position:absolute; left:0; right:0; height:calc(var(--vh) * .07 + var(--p, 0) * var(--vh) * .06); background:#000; z-index:3; pointer-events:none}
+.lbox i:first-child{top:0} .lbox i:last-child{bottom:0}
+.hero-copy{position:absolute; inset:0; z-index:4; display:flex; align-items:center; transform:translateY(calc(var(--p, 0) * -21vh)); opacity:calc(1 - var(--p, 0) * 1.9)}
+.hero-copy .wrap{width:100%}
+.hero-copy .inr{width:min(100%, 38.2vw + 144px); display:grid; gap:var(--f4)}
+.hero h1{font-size:clamp(55px, 7.2vw, 144px); line-height:.95}
+.hero h1 em{color:var(--gold)}
+.hero .lede{max-width:34ch; color:var(--ivory-2)}
+.hero .ctas{display:flex; flex-wrap:wrap; gap:var(--f2)}
+.caption{position:absolute; z-index:4; right:var(--gr); bottom:calc(var(--vh) * .07 + 21px); display:grid; gap:6px; text-align:right; font:400 11px/1.4 var(--sans); letter-spacing:.2em; text-transform:uppercase; color:var(--ivory-2); opacity:calc(1 - var(--p, 0) * 3)}
+.caption b{font-weight:500; color:var(--ivory)}
+.cue{position:absolute; z-index:4; left:var(--gl); bottom:calc(var(--vh) * .07 + 21px); display:flex; align-items:center; gap:var(--f2); font:400 11px/1 var(--sans); letter-spacing:.32em; text-transform:uppercase; color:var(--ivory-2); opacity:calc(1 - var(--p, 0) * 4)}
+.cue i{width:55px; height:1px; background:var(--ivory-3); position:relative; overflow:hidden}
+.cue i::after{content:""; position:absolute; inset:0; background:var(--gold); animation:cue 2.6s cubic-bezier(.7,0,.2,1) infinite}
+@keyframes cue{0%{transform:translateX(-100%)} 60%,100%{transform:translateX(100%)}}
+@media (max-width:760px){
+  .hero .shade{background:linear-gradient(0deg, rgba(11,10,9,.95) 0%, rgba(11,10,9,.6) 38.2%, transparent 61.8%)}
+  .hero-copy{align-items:flex-end; padding-bottom:calc(var(--vh) * .07 + 55px)}
+  .hero-copy .inr{width:100%; gap:var(--f3)}
+  .hero h1{font-size:clamp(44px, 13vw, 72px)}
+  .caption{display:none}
+  .lbox i{height:calc(var(--vh) * .035 + var(--p, 0) * var(--vh) * .04)}
+  .cue{bottom:calc(var(--vh) * .035 + 16px)}
+}
+
+/* manifesto */
+.manifesto{height:calc(var(--vh) * 2.4)}
+.manifesto .stage{display:grid; align-items:center}
+.manifesto p{font:400 clamp(30px, 4.3vw, 72px)/1.18 var(--display); max-width:22ch; letter-spacing:-.01em}
+.manifesto p .w{opacity:.13; transition:opacity .25s}
+.manifesto p .w.g{font-style:italic; color:var(--gold)}
+.manifesto .row{display:grid; grid-template-columns:1fr 1.618fr; gap:var(--f5); align-items:end}
+.manifesto .side{display:grid; gap:var(--f3); align-content:end; padding-bottom:var(--f2)}
+.manifesto .side .big{font:400 clamp(89px, 12vw, 233px)/.8 var(--display); color:var(--ink-3); -webkit-text-stroke:1px var(--gold-2)}
+@media (max-width:760px){ .manifesto .row{grid-template-columns:1fr; gap:var(--f4)} .manifesto .side .big{font-size:89px} }
+
+/* aurea */
+.aurea{height:calc(var(--vh) * 1.7)}
+.aurea .stage{display:grid; align-items:center}
+.aurea .grid{display:grid; grid-template-columns:1fr 1.618fr; gap:var(--f5); align-items:center}
+.aurea .txt{display:grid; gap:var(--f3); align-content:center; min-width:0}
+.aurea h2{font-size:clamp(44px, 5.4vw, 89px); line-height:1}
+.aurea .ratio{font:400 clamp(55px, 6.8vw, 120px)/1 var(--display); color:var(--gold); white-space:nowrap}
+.aurea .ratio small{font-size:.42em; color:var(--ivory-3); margin:0 .2em}
+.aurea .txt p{color:var(--ivory-2); max-width:42ch; font-size:16px}
+.frame{position:relative; width:min(100%, calc(var(--vh) * .74 * 1.618)); aspect-ratio:1.618/1; justify-self:center}
+.frame .live{position:absolute; inset:0; transform:scale(calc(1.06 - var(--a, 0) * .06))}
+.frame svg{position:absolute; inset:0; width:100%; height:100%; overflow:visible; pointer-events:none}
+.frame svg .sq{fill:none; stroke:rgba(201,164,94,.45); stroke-width:1; vector-effect:non-scaling-stroke}
+.frame svg .sp{fill:none; stroke:var(--gold); stroke-width:1.4; vector-effect:non-scaling-stroke}
+.frame svg text{fill:var(--ivory-2); font:400 30px var(--display); font-style:italic}
+.frame svg .eye{fill:var(--gold)}
+.fib{font:400 11px/1.6 var(--sans); letter-spacing:.24em; text-transform:uppercase; color:var(--ivory-3)}
+.fib b{font-weight:400; color:var(--ivory-2); letter-spacing:.12em}
+@media (max-width:860px){ .aurea .grid{grid-template-columns:1fr; gap:var(--f4)} .aurea .txt{order:2; gap:var(--f2)} .aurea .txt p{font-size:15px} .aurea h2{font-size:44px} .aurea .ratio{font-size:55px} }
+
+/* horizontal collections */
+.hs .stage{display:block}
+.track{display:flex; height:100%; will-change:transform}
+.panel{position:relative; flex:0 0 100vw; height:100%; overflow:hidden}
+.panel .live{position:absolute; inset:0}
+.panel .cp{position:absolute; inset:0; display:flex; align-items:center; z-index:2}
+.panel .cp .wrap{width:100%}
+.panel .cp .inr{width:min(100%, 38.2vw + 89px); display:grid; gap:var(--f3)}
+.panel h2{font-size:clamp(55px, 7vw, 144px); line-height:.92}
+.panel h2 em{display:block; font-size:.32em; line-height:1.3; margin-top:var(--f2); color:var(--ivory-2)}
+.panel p{max-width:36ch}
+.panel .from{font:400 13px/1 var(--sans); letter-spacing:.2em; text-transform:uppercase}
+.panel.dark .cp{color:var(--ivory)} .panel.dark p{color:var(--ivory-2)}
+.panel.light .cp{color:#17140F} .panel.light p{color:#4A443B} .panel.light h2 em{color:#6B6357} .panel.light .eb{color:#8C6F3E}
+.panel.light .btn{border-color:#17140F} .panel.light .btn:hover{background:#17140F; color:#EFE9DE}
+.panel .shade{position:absolute; inset:0; z-index:1; pointer-events:none}
+.panel.dark .shade{background:linear-gradient(90deg, rgba(11,10,9,.78), rgba(11,10,9,.2) 38.2%, transparent 61.8%)}
+.panel.light .shade{background:linear-gradient(90deg, rgba(239,236,231,.8), rgba(239,236,231,.25) 38.2%, transparent 61.8%)}
+.panel.intro{display:grid; align-items:center; background:var(--ink)}
+.panel.intro h2{font-size:clamp(55px, 8vw, 144px)}
+.hs-bar{position:absolute; left:var(--gl); right:var(--gr); bottom:calc(21px + var(--sab)); z-index:5; display:flex; gap:var(--f3); align-items:center; font:400 11px/1 var(--sans); letter-spacing:.24em; text-transform:uppercase; color:var(--ivory-2); mix-blend-mode:difference}
+.hs-bar .b{flex:1; height:1px; background:rgba(239,233,222,.3); position:relative}
+.hs-bar .b i{position:absolute; inset:0; background:var(--ivory); transform-origin:left; transform:scaleX(var(--p, 0))}
+@media (max-width:760px){
+  .panel .cp{align-items:flex-end; padding-bottom:89px}
+  .panel .cp .inr{width:100%; gap:var(--f2)}
+  .panel h2{font-size:55px}
+  .panel.dark .shade{background:linear-gradient(0deg, rgba(11,10,9,.92), rgba(11,10,9,.5) 38.2%, transparent 61.8%)}
+  .panel.light .shade{background:linear-gradient(0deg, rgba(239,236,231,.94), rgba(239,236,231,.55) 38.2%, transparent 61.8%)}
+  .panel p{font-size:15px}
+}
+
+/* golden split sections */
+.sec{padding-block:clamp(89px, 12vw, 233px)}
+.split{display:grid; grid-template-columns:1.618fr 1fr; gap:clamp(34px, 5vw, 89px); align-items:center}
+.split.rev{grid-template-columns:1fr 1.618fr}
+.split > *{min-width:0}
+.split .txt{display:grid; gap:var(--f4); align-content:center}
+.split h2{font-size:clamp(44px, 5.4vw, 89px); line-height:1}
+.split h2 em{color:var(--gold)}
+.split .txt p{color:var(--ivory-2); max-width:44ch}
+@media (max-width:860px){ .split, .split.rev{grid-template-columns:1fr} .split.rev .live{order:-1} }
+.macro .live{aspect-ratio:1/1.236; max-height:calc(var(--vh) * .9)}
+.specs{display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--line)}
+.specs div{padding:var(--f3) 0; border-bottom:1px solid var(--line); display:grid; gap:6px}
+.specs div:nth-child(odd){padding-right:var(--f3); border-right:1px solid var(--line)}
+.specs div:nth-child(even){padding-left:var(--f3)}
+.specs dt{font:500 10.5px/1 var(--sans); letter-spacing:.28em; text-transform:uppercase; color:var(--ivory-3)}
+.specs dd{margin:0; font:400 clamp(30px, 3vw, 44px)/1 var(--display)}
+.specs dd small{font-size:.45em; color:var(--ivory-2); margin-left:.2em}
+.price-row{display:flex; flex-wrap:wrap; align-items:center; gap:var(--f3)}
+.price-row .pr{font:400 21px/1 var(--sans); letter-spacing:.04em}
+
+/* sposi */
+.sposi{position:relative; min-height:calc(var(--vh) * 1.0); display:grid}
+.sposi .live{position:absolute; inset:0}
+.sposi .shade{position:absolute; inset:0; background:linear-gradient(270deg, rgba(11,10,9,.86), rgba(11,10,9,.35) 38.2%, transparent 61.8%); z-index:1}
+.sposi .cp{position:relative; z-index:2; width:100%; display:flex; align-items:center; justify-content:flex-end}
+.sposi .cp .inr{width:min(100%, 38.2vw + 89px); display:grid; gap:var(--f4); padding-block:var(--f6)}
+.sposi h2{font-size:clamp(44px, 5.4vw, 89px); line-height:1}
+.sposi h2 em{color:var(--gold)}
+.sposi p{color:var(--ivory-2); max-width:40ch}
+.sposi .lbox i{height:calc(var(--vh) * .06)}
+@media (max-width:760px){ .sposi{min-height:calc(var(--vh) * 1.1)} .sposi .shade{background:linear-gradient(0deg, rgba(11,10,9,.95), rgba(11,10,9,.55) 45%, transparent 70%)} .sposi .cp{align-items:flex-end} .sposi .cp .inr{width:100%; padding-block:55px} }
+
+/* atelier */
+.marquee{overflow:hidden; border-block:1px solid var(--line); padding-block:var(--f4)}
+.marquee .mq{display:flex; width:max-content; animation:mq 55s linear infinite}
+.marquee span{font:italic 400 clamp(44px, 6vw, 89px)/1 var(--display); white-space:nowrap; padding-right:var(--f5); color:var(--ivory)}
+.marquee span b{font-weight:400; font-style:normal; color:var(--gold); padding-left:var(--f5)}
+@keyframes mq{to{transform:translateX(-50%)}}
+.svcs{display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:0; margin-top:var(--f6)}
+.svcs > div{padding:0 var(--f4) var(--f3) 0; display:grid; gap:var(--f2); align-content:start}
+.svcs > div + div{padding-left:var(--f4); border-left:1px solid var(--line)}
+.svcs h3{font-size:clamp(24px, 2vw, 30px)}
+.svcs p{color:var(--ivory-2); font-size:15.5px}
+.svcs .k{font:500 10.5px/1 var(--sans); letter-spacing:.28em; text-transform:uppercase; color:var(--gold)}
+@media (max-width:900px){ .svcs{grid-template-columns:1fr 1fr; row-gap:var(--f5)} .svcs > div:nth-child(3){padding-left:0; border-left:0} }
+@media (max-width:520px){ .svcs{grid-template-columns:1fr; row-gap:var(--f4)} .svcs > div + div{padding-left:0; border-left:0; padding-top:var(--f4); border-top:1px solid var(--line)} }
+
+/* pieces */
+.head{display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:var(--f3); margin-bottom:var(--f5)}
+.head h2{font-size:clamp(44px, 5.4vw, 89px); line-height:1}
+.head h2 em{color:var(--gold)}
+.pieces{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:var(--f5) var(--f3)}
+.piece{display:grid; gap:var(--f3); min-width:0}
+.piece .live{aspect-ratio:1/1.236}
+.piece .meta{display:grid; grid-template-columns:1fr auto; gap:6px var(--f3); align-items:baseline}
+.piece .c{grid-column:1/-1; font:500 10.5px/1 var(--sans); letter-spacing:.28em; text-transform:uppercase; color:var(--ivory-3)}
+.piece h3{font-size:clamp(21px, 1.9vw, 28px); line-height:1.15}
+.piece .pr{font:400 16px/1 var(--sans); letter-spacing:.04em}
+.piece .d{grid-column:1/-1; font-size:14.5px; color:var(--ivory-2)}
+.piece .go{grid-column:1/-1; justify-self:start; margin-top:6px}
+.piece .live canvas{transition:opacity 1.6s, transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.piece:hover .live canvas{transform:scale(1.035)}
+@media (max-width:900px){ .pieces{grid-template-columns:1fr 1fr} }
+@media (max-width:520px){ .pieces{grid-template-columns:1fr} }
+
+/* visit */
+.visit dl{display:grid; grid-template-columns:auto 1fr; gap:var(--f2) var(--f4); margin:0}
+.visit dt{font:500 10.5px/1.9 var(--sans); letter-spacing:.28em; text-transform:uppercase; color:var(--ivory-3)}
+.visit dd{margin:0}
+.ph-note{display:inline-block; font:400 12.5px/1.4 var(--sans); color:var(--gold); border:1px dashed var(--gold-2); padding:6px 10px; justify-self:start}
+.visit .live{aspect-ratio:1.618/1}
+.cp-btn{font:500 10px/1 var(--sans); letter-spacing:.2em; text-transform:uppercase; border:1px solid var(--line); padding:5px 8px; margin-left:var(--f2); color:var(--ivory-2)}
+.cp-btn:hover{border-color:var(--gold); color:var(--gold)}
+
+footer{border-top:1px solid var(--line); padding-bottom:var(--sab)}
+.foot{display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:var(--f3); padding-block:var(--f5)}
+.foot .logo{justify-items:start}
+.foot .logo .l1{margin-right:0}
+.foot nav{display:flex; flex-wrap:wrap; gap:var(--f4); font:400 11.5px/1 var(--sans); letter-spacing:.22em; text-transform:uppercase; color:var(--ivory-2)}
+.foot nav a:hover{color:var(--ivory)}
+.foot small{font-size:12.5px; color:var(--ivory-3); flex-basis:100%}
+
+/* cursor */
+#cur{position:fixed; left:0; top:0; z-index:95; width:34px; height:34px; margin:-17px 0 0 -17px; border:1px solid var(--gold); border-radius:50%; pointer-events:none; opacity:0; transition:width .35s, height .35s, margin .35s, opacity .35s, background .35s; mix-blend-mode:difference}
+#cur.on{opacity:.9}
+#cur.big{width:89px; height:89px; margin:-44.5px 0 0 -44.5px; background:rgba(201,164,94,.12)}
+@media (hover:none), (pointer:coarse){ #cur{display:none} }
+
+@media (prefers-reduced-motion: reduce){
+  #grain, .flare, .live .kb, .marquee .mq, .cue i::after{animation:none!important}
+  .js .rv, .js .mask > span{opacity:1!important; transform:none!important; transition:none!important}
+}
+</style>
+</head>
+<body>
+<canvas id="grain" aria-hidden="true"></canvas>
+<div id="cur" aria-hidden="true"></div>
+
+<div id="intro" role="presentation">
+  <div class="bars"><i></i><i></i></div>
+  <div class="ilogo">
+    <span class="l1">Gioielleria</span>
+    <span class="l2" id="il2"></span>
+    <span class="rule"></span>
+    <span class="st" id="ist">Accendiamo le luci dello studio</span>
+  </div>
+</div>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <button class="menu-b" id="menuB" aria-label="Apri il menu"><i></i></button>
+    <nav class="side" aria-label="Sezioni"><a href="#collezioni">Collezioni</a><a href="#aurea">Sezione aurea</a><a href="#sposi">Sposi</a></nav>
+    <a class="logo" href="#top" aria-label="Gioielleria Speciale"><span class="l1">Gioielleria</span><span class="l2">Speciale</span></a>
+    <nav class="side r" aria-label="Altre sezioni"><a href="#atelier">Atelier</a><a href="#visita">Visita</a><a class="shop" data-shop="">Negozio online ↗</a></nav>
+    <a class="mshop" data-shop="">Negozio ↗</a>
+  </div>
+</header>
+<div class="mmenu" id="mmenu">
+  <button class="x" id="menuX">Chiudi</button>
+  <a href="#collezioni">Collezioni</a><a href="#aurea">Sezione <em>aurea</em></a><a href="#sposi">Sposi</a><a href="#atelier">Atelier</a><a href="#pezzi">Pezzi scelti</a><a href="#visita">Visita</a>
+  <a data-shop=""><em>Negozio online ↗</em></a>
+</div>
+
+<main>
+  <!-- SCENA 1 -->
+  <section class="pin hero" id="top" data-pin>
+    <div class="stage">
+      <div class="live" data-shot="hero" data-shot-m="hero-m" data-focus=".62,.4" data-focus-m=".5,.38"><div class="kb"><canvas></canvas></div><span class="wait">Speciale</span></div>
+      <div class="flare" aria-hidden="true"></div>
+      <div class="shade"></div>
+      <div class="lbox" aria-hidden="true"><i></i><i></i></div>
+      <div class="hero-copy"><div class="wrap"><div class="inr" id="heroIn">
+        <span class="eb">Alta gioielleria · Partinico</span>
+        <h1><span class="mask"><span>La luce,</span></span><span class="mask"><span><em>in proporzione.</em></span></span></h1>
+        <p class="lede">Diamanti certificati, oro 750‰ e un laboratorio orafo dietro il banco. Ogni gioiello disegnato sulla misura che l'occhio riconosce come armonica: 1 a 1,618.</p>
+        <div class="ctas"><a class="btn gold" href="#collezioni">Le collezioni</a><a class="btn" data-shop="">Negozio online <span class="ar">↗</span></a></div>
+      </div></div></div>
+      <div class="caption"><span>In scena</span><b>Solitario Promessa Halo</b><span>Oro bianco 750‰ · diamante 0,50 ct</span></div>
+      <div class="cue"><i></i>Scorri</div>
+    </div>
+  </section>
+
+  <!-- SCENA 2 -->
+  <section class="pin manifesto" data-pin id="manifesto">
+    <div class="stage"><div class="wrap"><div class="row">
+      <div class="side"><span class="big num">φ</span><span class="eb">Il nostro metodo</span></div>
+      <p id="mtext">Ogni gioiello che esce dal nostro laboratorio nasce da una misura. L'altezza del castone, la curva della fascia, la distanza tra due pietre: proporzioni scelte perché la luce torni all'occhio. Oro 750‰, diamanti certificati, e la *sezione* *aurea* come guida.</p>
+    </div></div></div>
+  </section>
+
+  <!-- SCENA 3 -->
+  <section class="pin aurea" id="aurea" data-pin>
+    <div class="stage"><div class="wrap"><div class="grid">
+      <div class="txt">
+        <span class="eb">La sezione aurea</span>
+        <h2>Il numero della bellezza</h2>
+        <div class="ratio num"><span>1</span><small>:</small><span id="phiN">1,618</span></div>
+        <p>Si ottiene dividendo un segmento in due parti tali che la maggiore stia alla minore come l'intero sta alla maggiore. Lo ritrovi nelle conchiglie, nei petali e nelle facciate classiche. Noi lo usiamo quando disegniamo: per la proporzione tra pietra e montatura, per la lunghezza di un pendente, per la distanza tra i diamanti.</p>
+        <span class="fib">Successione di Fibonacci<br><b class="num" id="fibN">1 · 1 · 2 · 3 · 5 · 8 · 13 · 21</b></span>
+      </div>
+      <div class="frame" id="frame">
+        <div class="live" data-shot="aurea" data-focus=".5,.5"><div class="kb"><canvas></canvas></div><span class="wait">φ</span></div>
+      </div>
+    </div></div></div>
+  </section>
+
+  <!-- SCENA 4 -->
+  <section class="pin hs" id="collezioni" data-pin>
+    <div class="stage">
+      <div class="track" id="track">
+        <div class="panel intro"><div class="wrap"><div style="display:grid;gap:21px;max-width:61.8vw">
+          <span class="eb">Le collezioni</span>
+          <h2>Quattro <em style="color:var(--gold)">luci</em> diverse</h2>
+          <p class="mut" style="max-width:40ch">Dal bianco del diamante al verde dello smeraldo. Scorri per passare da una collezione all'altra.</p>
+        </div></div></div>
+        <div class="panel light">
+          <div class="live" data-shot="c-promessa" data-tone="light" data-focus=".62,.4" data-focus-m=".5,.32"><div class="kb"><canvas></canvas></div></div>
+          <div class="shade"></div>
+          <div class="cp"><div class="wrap"><div class="inr">
+            <span class="eb">Anelli di fidanzamento</span>
+            <h2>Promessa<em>Il diamante scelto con te</em></h2>
+            <p>Taglio brillante, colore G, purezza VS1 e certificato IGI. Quattro griffe sottili per lasciar passare tutta la luce.</p>
+            <span class="from num">Da 2.850 €</span>
+            <div><a class="btn" data-shop="collezione-promessa">Scopri Promessa <span class="ar">↗</span></a></div>
+          </div></div></div>
+        </div>
+        <div class="panel light">
+          <div class="live" data-shot="c-zagara" data-tone="blush" data-focus=".62,.4" data-focus-m=".5,.32"><div class="kb"><canvas></canvas></div></div>
+          <div class="shade" style="background:linear-gradient(90deg, rgba(238,226,220,.85), rgba(238,226,220,.25) 38.2%, transparent 61.8%)"></div>
+          <div class="cp"><div class="wrap"><div class="inr">
+            <span class="eb">Oro rosa e zaffiri rosa</span>
+            <h2>Zagara<em>Il fiore d'arancio</em></h2>
+            <p>Il colore della zagara siciliana in primavera: oro rosa caldo, zaffiri rosa e un contorno di diamanti.</p>
+            <span class="from num">Da 980 €</span>
+            <div><a class="btn" data-shop="collezione-zagara">Scopri Zagara <span class="ar">↗</span></a></div>
+          </div></div></div>
+        </div>
+        <div class="panel dark">
+          <div class="live" data-shot="c-mare" data-tone="sea" data-focus=".62,.4" data-focus-m=".5,.32"><div class="kb"><canvas></canvas></div></div>
+          <div class="shade" style="background:linear-gradient(90deg, rgba(10,22,23,.85), rgba(10,22,23,.3) 38.2%, transparent 61.8%)"></div>
+          <div class="cp"><div class="wrap"><div class="inr">
+            <span class="eb">Smeraldi</span>
+            <h2>Mare Nostrum<em>Il verde profondo</em></h2>
+            <p>Smeraldi a gradini, tagliati per far risaltare la profondità del colore, affiancati da diamanti su oro giallo.</p>
+            <span class="from num">Da 2.200 €</span>
+            <div><a class="btn" data-shop="collezione-mare-nostrum">Scopri Mare Nostrum <span class="ar">↗</span></a></div>
+          </div></div></div>
+        </div>
+        <div class="panel dark">
+          <div class="live" data-shot="c-riviera" data-focus=".62,.4" data-focus-m=".5,.32"><div class="kb"><canvas></canvas></div></div>
+          <div class="shade"></div>
+          <div class="cp"><div class="wrap"><div class="inr">
+            <span class="eb">Bracciali tennis</span>
+            <h2>Riviera<em>Una linea di luce</em></h2>
+            <p>Diamanti uno accanto all'altro in castoni articolati, con doppia chiusura di sicurezza. Anche con zaffiri blu.</p>
+            <span class="from num">Da 2.650 €</span>
+            <div><a class="btn" data-shop="collezione-riviera">Scopri Riviera <span class="ar">↗</span></a></div>
+          </div></div></div>
+        </div>
+      </div>
+      <div class="hs-bar"><span id="hsN" class="num">Collezioni</span><span class="b"><i></i></span><span>Scorri</span></div>
+    </div>
+  </section>
+
+  <!-- SCENA 5 -->
+  <section class="sec macro" id="dettaglio">
+    <div class="wrap split">
+      <div class="live rv" data-shot="macro" data-focus=".5,.45"><div class="kb"><canvas></canvas></div><span class="wait">VS</span></div>
+      <div class="txt">
+        <span class="eb rv">Primo piano</span>
+        <h2 class="rv d1">Trilogy <em>Tre Tempi</em></h2>
+        <p class="rv d2">Passato, presente e futuro in tre diamanti a taglio brillante. La pietra centrale è affiancata da due brillanti più piccoli che seguono la curva della fascia in oro bianco.</p>
+        <dl class="specs rv d2" id="specs">
+          <div><dt>Caratura</dt><dd class="num"><span data-count="0.75" data-dec="2">0,75</span><small>ct totali</small></dd></div>
+          <div><dt>Faccette</dt><dd class="num"><span data-count="57" data-dec="0">57</span><small>per pietra</small></dd></div>
+          <div><dt>Colore</dt><dd>G</dd></div>
+          <div><dt>Purezza</dt><dd>VS</dd></div>
+        </dl>
+        <div class="price-row rv d3"><span class="pr num">3.950 €</span><a class="lnk" data-shop="p-tre-tempi">Vedi nel negozio ↗</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCENA 6 -->
+  <section class="sposi" id="sposi">
+    <div class="live" data-shot="sposi" data-tone="light" data-focus=".38,.45" data-focus-m=".5,.3"><div class="kb"><canvas></canvas></div></div>
+    <div class="shade"></div>
+    <div class="lbox" aria-hidden="true"><i></i><i></i></div>
+    <div class="cp wrap"><div class="inr">
+      <span class="eb rv">Sposi</span>
+      <h2 class="rv d1">Dal sì alla fede, <em>con calma</em></h2>
+      <p class="rv d2">Un appuntamento riservato per scegliere il diamante, provare i profili delle fedi e decidere l'incisione. Ti mostriamo le pietre al microscopio e ti spieghiamo il certificato.</p>
+      <div class="rv d3" style="display:flex;flex-wrap:wrap;gap:13px"><a class="btn gold" data-shop="sposi">Prenota una consulenza <span class="ar">↗</span></a><a class="btn" data-shop="collezione-fedi">Le fedi</a></div>
+    </div></div>
+  </section>
+
+  <!-- SCENA 7 -->
+  <section class="sec" id="atelier" style="padding-bottom:0">
+    <div class="wrap head" style="margin-bottom:55px">
+      <div style="display:grid;gap:21px"><span class="eb rv">L'atelier</span><h2 class="rv d1">Dietro il <em>banco</em></h2></div>
+      <p class="mut rv d2" style="max-width:40ch">Il laboratorio orafo è dentro il negozio. Per la maggior parte dei lavori non spediamo nulla fuori, e i tempi si contano in giorni.</p>
+    </div>
+    <div class="marquee" aria-hidden="true"><div class="mq"><span>Incisioni<b>·</b></span><span>Misure<b>·</b></span><span>Restauri<b>·</b></span><span>Perizie<b>·</b></span><span>Su misura<b>·</b></span><span>Orologeria<b>·</b></span><span>Incisioni<b>·</b></span><span>Misure<b>·</b></span><span>Restauri<b>·</b></span><span>Perizie<b>·</b></span><span>Su misura<b>·</b></span><span>Orologeria<b>·</b></span></div></div>
+    <div class="wrap"><div class="svcs">
+      <div class="rv"><span class="k">Gratuita</span><h3>Incisioni</h3><p>Nomi, date e iniziali all'interno di fedi, anelli e rigidi, a mano o al laser.</p></div>
+      <div class="rv d1"><span class="k">Entro 60 giorni</span><h3>Misura</h3><p>Il primo ridimensionamento dell'anello è gratuito, con pietre e incastonature intatte.</p></div>
+      <div class="rv d2"><span class="k">Una volta l'anno</span><h3>Pulizia e griffe</h3><p>Ultrasuoni, lucidatura e controllo delle griffe che tengono le pietre.</p></div>
+      <div class="rv d3"><span class="k">Su appuntamento</span><h3>Su misura</h3><p>Dal disegno al gioiello finito, anche con pietre e oro di famiglia.</p></div>
+    </div></div>
+  </section>
+
+  <!-- SCENA 8 -->
+  <section class="sec" id="pezzi">
+    <div class="wrap">
+      <div class="head"><div style="display:grid;gap:21px"><span class="eb rv">Pezzi scelti</span><h2 class="rv d1">In <em>movimento</em></h2></div><a class="lnk rv d2" data-shop="gioielli">Tutti i gioielli ↗</a></div>
+      <div class="pieces" id="pieces"></div>
+    </div>
+  </section>
+
+  <!-- SCENA 9 -->
+  <section class="sec visit" id="visita" style="padding-top:0">
+    <div class="wrap split rev">
+      <div class="txt">
+        <span class="eb rv">Visita</span>
+        <h2 class="rv d1">La gioielleria <em>a Partinico</em></h2>
+        <p class="rv d2">Ogni gioiello del sito si può vedere dal vivo, provare e ritirare in negozio. Per gli anelli di fidanzamento ti consigliamo di prenotare.</p>
+        <dl class="rv d2">
+          <dt>Indirizzo</dt><dd>Corso dei Mille 00, 90047 Partinico (PA)</dd>
+          <dt>Lun – Ven</dt><dd class="num">9:00 – 13:00 · 16:30 – 20:00</dd>
+          <dt>Sabato</dt><dd class="num">9:00 – 13:00 · 16:30 – 20:30</dd>
+          <dt>Telefono</dt><dd class="num">+39 091 000 0000<button class="cp-btn" data-copy="+39 091 000 0000">Copia</button></dd>
+          <dt>Email</dt><dd>info@gioielleriaspeciale.it<button class="cp-btn" data-copy="info@gioielleriaspeciale.it">Copia</button></dd>
+        </dl>
+        <span class="ph-note rv d3">Indirizzo, contatti e orari sono segnaposto da sostituire.</span>
+        <div class="rv d3" style="display:flex;flex-wrap:wrap;gap:13px"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Gioielleria%20Speciale%20Partinico" target="_blank" rel="noopener">Apri in Maps <span class="ar">↗</span></a><a class="btn gold" data-shop="contatti">Contatti</a></div>
+      </div>
+      <div class="live rv" data-shot="visita" data-focus=".55,.45"><div class="kb"><canvas></canvas></div></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a class="logo" href="#top"><span class="l1">Gioielleria</span><span class="l2">Speciale</span></a>
+    <nav aria-label="Piè di pagina"><a data-shop="">Negozio online ↗</a><a data-shop="spedizioni-resi">Spedizioni e resi</a><a data-shop="guida-misure">Guida alle misure</a><a data-shop="privacy">Privacy</a></nav>
+    <small>© 2026 Gioielleria Speciale · Partinico (PA). Le immagini sono riprese digitali dei modelli in attesa delle fotografie del negozio.</small>
+  </div>
+</footer>
+<script>
+/* Speciale — studio renderer: raymarched jewellery "photographs" baked to images */
+(function (global) {
+'use strict';
+
+const FRAG = `#version 300 es
+precision highp float;
+precision highp int;
+out vec4 outCol;
+uniform vec2 uRes;
+uniform vec3 uCamPos, uCamTarget;
+uniform float uFov;
+uniform int uCount;
+uniform int uType[4];
+uniform vec3 uPos[4];
+uniform mat3 uRot[4];
+uniform vec4 uPar[4];
+uniform float uScale[4];
+uniform vec3 uMetal, uMetal2, uGemAbs, uPearl, uDial;
+uniform float uGemIor, uGemDisp, uRough;
+uniform vec3 uBgTop, uBgBot, uEnvLow, uEnvHigh, uFloorEnv, uGlowPos;
+uniform float uGlow, uEnvGain, uFloorRefl, uShadow, uExposure;
+uniform vec3 uLight;
+uniform int uAA;
+
+#define PI 3.14159265
+float gD; float gM; bool gGemOnly; bool gNoFloor; float gScale;
+
+void put(float d, float m){
+  if (gGemOnly && !(m > 1.5 && m < 3.5)) return;
+  d *= gScale;
+  if (d < gD) { gD = d; gM = m; }
+}
+mat2 rot(float a){ float c = cos(a), s = sin(a); return mat2(c, s, -s, c); }
+float hash1(float n){ return fract(sin(n * 12.9898) * 43758.5453); }
+float sdCap(vec3 p, vec3 a, vec3 b, float r){ vec3 pa = p - a, ba = b - a; float h = clamp(dot(pa, ba) / dot(ba, ba), 0., 1.); return length(pa - ba * h) - r; }
+float sdRBox(vec3 p, vec3 b, float r){ vec3 q = abs(p) - b + r; return length(max(q, 0.)) + min(max(q.x, max(q.y, q.z)), 0.) - r; }
+float sdTorus(vec3 p, float R, float r){ return length(vec2(length(p.xz) - R, p.y)) - r; }
+float smin(float a, float b, float k){ float h = clamp(0.5 + 0.5 * (b - a) / k, 0., 1.); return mix(b, a, h) - k * h * (1. - h); }
+float sdRCyl(vec3 p, float ra, float h, float rb){ vec2 d = vec2(length(p.xz) - ra + rb, abs(p.y) - h + rb); return min(max(d.x, d.y), 0.) + length(max(d, 0.)) - rb; }
+
+float sdBrilliant(vec3 p, float r){
+  float rad = length(p.xz);
+  float a = atan(p.z, p.x);
+  const float S = 6.2831853 / 8.0;
+  a = mod(a + S * 0.5, S) - S * 0.5; a = abs(a);
+  vec3 q = vec3(cos(a) * rad, p.y, sin(a) * rad);
+  float g = 0.025 * r, hc = 0.33 * r;
+  float d = max(rad - r, q.y - hc);
+  d = max(d, dot(vec2(q.x - r, q.y - g), vec2(0.5664, 0.8241)));
+  float xr = q.x * 0.92388 + q.z * 0.38268;
+  d = max(d, dot(vec2(xr - r, q.y - g), vec2(0.6442, 0.7648)));
+  d = max(d, dot(vec2(xr - 0.60 * r, q.y - hc), vec2(0.3746, 0.9272)));
+  d = max(d, dot(vec2(q.x - r, q.y + g), vec2(0.6524, -0.7579)));
+  d = max(d, dot(vec2(xr - r, q.y + g), vec2(0.6816, -0.7317)));
+  return d;
+}
+float sdEmerald(vec3 p, float W, float L){
+  vec3 a = vec3(abs(p.x), p.y, abs(p.z));
+  float m = min(W, L), k = 0.3 * m;
+  float g = 0.02 * m;
+  float hx = a.x - W, hz = a.z - L, hc = (a.x + a.z - (W + L - k)) * 0.7071;
+  float d = max(max(hx, hz), hc);
+  d = max(d, a.y - 0.34 * m);
+  vec2 c1 = vec2(0.719, 0.695), c2 = vec2(0.42, 0.907);
+  vec2 p1 = vec2(0.70, -0.714), p2 = vec2(0.52, -0.854);
+  float o2 = 0.16 * m, y2 = g + o2 * 1.03;
+  float po = 0.30 * m, py = -g - po * 0.98;
+  for (int i = 0; i < 3; i++) {
+    float h = i == 0 ? hx : (i == 1 ? hz : hc);
+    d = max(d, dot(vec2(h, a.y - g), c1));
+    d = max(d, dot(vec2(h + o2, a.y - y2), c2));
+    d = max(d, dot(vec2(h, a.y + g), p1));
+    d = max(d, dot(vec2(h + po, a.y - py), p2));
+  }
+  return d;
+}
+float sdBand(vec3 p, float R, float t, float w){
+  vec2 q = vec2(length(p.xy) - (R + t * 0.5), p.z);
+  vec2 b = vec2(t * 0.5, w * 0.5);
+  float r = min(t, w) * 0.48;
+  vec2 d = abs(q) - b + r;
+  return length(max(d, 0.)) + min(max(d.x, d.y), 0.) - r;
+}
+void prongs(vec3 q, vec2 hh, float yb, float yt, float th, float m){
+  vec3 a = vec3(abs(q.x), q.y, abs(q.z));
+  put(sdCap(a, vec3(hh.x * 0.42, yb, hh.y * 0.42), vec3(hh.x, yt, hh.y), th), m);
+}
+void headRound(vec3 q, float r, float stemY, float m, float gm){
+  put(sdBrilliant(q, r), gm);
+  if (gGemOnly) return;
+  prongs(q, vec2(0.69 * r), stemY, 0.17 * r, 0.075 * r + 0.006, m);
+  put(sdTorus(q - vec3(0., -0.45 * r, 0.), 0.56 * r, 0.045 * r + 0.004), m);
+}
+void halo(vec3 q, float r, float rs, float m){
+  float R = r + rs * 1.18;
+  float N = floor(2. * PI * R / (2.25 * rs));
+  float S = 2. * PI / N;
+  float a = atan(q.z, q.x);
+  float i = floor(a / S + 0.5);
+  vec2 xz = rot(-i * S) * q.xz;
+  put(sdBrilliant(vec3(xz.x - R, q.y + 0.1 * r, xz.y), rs), 3.);
+  if (gGemOnly) return;
+  put(sdTorus(q - vec3(0., -0.1 * r - 0.55 * rs, 0.), R, rs * 0.7), m);
+  float i2 = floor(a / S) + 0.5;
+  vec2 xz2 = rot(-i2 * S) * q.xz;
+  put(length(vec3(xz2.x - R, q.y + 0.1 * r - 0.05 * rs, xz2.y)) - 0.3 * rs, m);
+}
+void paveArc(vec3 p, float Rg, float rs, float halfArc, float zoff, float m){
+  float a = atan(p.x, p.y);
+  float S = 2.3 * rs / Rg;
+  float lim = floor(halfArc / S);
+  float i = clamp(floor(a / S + 0.5), -lim, lim);
+  vec2 xy = rot(i * S) * p.xy;
+  put(sdBrilliant(vec3(xy.x, xy.y - Rg, p.z - zoff), rs), 3.);
+  if (gGemOnly) return;
+  float ib = clamp(floor(a / S) + 0.5, -lim - 0.5, lim + 0.5);
+  vec2 xy2 = rot(ib * S) * p.xy;
+  put(length(vec3(xy2.x, xy2.y - Rg - 0.08 * rs, abs(p.z - zoff) - 0.62 * rs)) - 0.26 * rs, m);
+}
+float sdLink(vec3 q, float le, float r1, float r2){
+  q.z = max(abs(q.z) - le, 0.);
+  return length(vec2(length(q.xz) - r1, q.y)) - r2;
+}
+
+/* ---------- objects (ring axis = Z, floor y = 0 unless noted) ---------- */
+void oSolitaire(vec3 p, vec4 par, float m){
+  float R = 0.85, t = 0.15, w = 0.19;
+  put(sdBand(p, R, t, w), m);
+  float r = par.x;
+  float yg = R + t * 0.55 + 0.86 * r;
+  if (par.z > 0.5) {
+    float r2 = r * 0.68;
+    float ang = (r + r2) * 1.02 / yg;
+    for (int s = -1; s <= 1; s += 2) {
+      vec2 xy = rot(float(s) * ang) * p.xy;
+      float yg2 = R + t * 0.5 + 0.86 * r2;
+      headRound(vec3(xy.x, xy.y - yg2, p.z), r2, R + t * 0.5 - yg2, m, 2.);
+    }
+  }
+  vec3 q = p - vec3(0., yg, 0.);
+  headRound(q, r, R + t * 0.6 - yg, m, 2.);
+  if (par.y > 0.5) halo(q, r, r * 0.17, m);
+}
+void oColorStone(vec3 p, vec4 par, float m){
+  float R = 0.85, t = 0.15, w = 0.19;
+  put(sdBand(p, R, t, w), m);
+  float L = par.x, W = par.x * 0.74;
+  float yg = R + t * 0.5 + 0.55 * min(W, L);
+  vec3 q = p - vec3(0., yg, 0.);
+  put(sdEmerald(q, W, L), 2.);
+  if (!gGemOnly) {
+    prongs(q, vec2(W * 0.92, L * 0.92), R + t * 0.6 - yg, 0.16 * W, 0.045, m);
+    put(sdRBox(q - vec3(0., -0.32 * W, 0.), vec3(W * 0.7, 0.03, L * 0.7), 0.02), m);
+  }
+  float r2 = W * 0.52;
+  float ang = (W + r2) * 1.05 / yg;
+  for (int s = -1; s <= 1; s += 2) {
+    vec2 xy = rot(float(s) * ang) * p.xy;
+    float yg2 = R + t * 0.5 + 0.86 * r2;
+    headRound(vec3(xy.x, xy.y - yg2, p.z), r2, R + t * 0.5 - yg2, m, 3.);
+  }
+}
+void oEternity(vec3 p, vec4 par, float m){
+  float R = 0.85, t = 0.15;
+  put(sdBand(p, R, t, 0.2), m);
+  paveArc(p, R + t - 0.012, 0.07, par.x, 0., m);
+}
+void oBand(vec3 p, vec4 par, float m){ put(sdBand(p, 0.86, par.y, par.x), m); }
+void oSignet(vec3 p, vec4 par, float m){
+  float d = sdBand(p, 0.86, 0.13, 0.22);
+  float plate = sdRBox(p - vec3(0., 1.03, 0.), vec3(0.36, 0.09, 0.32), 0.07);
+  d = smin(d, plate, 0.2);
+  put(d, m);
+  put(sdRBox(p - vec3(0., 1.12, 0.), vec3(0.27, 0.03, 0.23), 0.035), 5.);
+}
+void oStuds(vec3 p, vec4 par, float m){
+  float r = par.x;
+  vec3 q = vec3(abs(p.x) - par.z, p.y, p.z);
+  float yg = 0.86 * r + 0.1;
+  vec3 g = q - vec3(0., yg, 0.);
+  headRound(g, r, -yg + 0.02, m, 2.);
+  if (par.y > 0.5) halo(g, r, r * 0.2, m);
+}
+void oHoops(vec3 p, vec4 par, float m){
+  float R = par.x;
+  vec3 q = vec3(abs(p.x) - par.z, p.y, p.z);
+  q.xz = rot(0.55) * q.xz;
+  vec3 h = q - vec3(0., R + 0.13, 0.);
+  vec2 s = vec2(length(h.xy) - R, h.z);
+  vec2 b = vec2(0.05, 0.12);
+  vec2 dd = abs(s) - b + 0.045;
+  put(length(max(dd, 0.)) + min(max(dd.x, dd.y), 0.) - 0.045, m);
+}
+void oDrops(vec3 p, vec4 par, float m){
+  vec3 q = vec3(abs(p.x) - par.z, p.y, p.z);
+  float r = 0.12;
+  vec3 g = q - vec3(0., 0.86 * r + 0.06, -1.0);
+  put(sdBrilliant(g, r), 3.);
+  if (!gGemOnly) {
+    put(sdTorus(g - vec3(0., -0.01, 0.), r + 0.02, 0.03), m);
+    put(sdCap(q, vec3(0., 0.04, -0.86), vec3(0., 0.04, -0.2), 0.026), m);
+  }
+  if (par.y < 0.5) {
+    put(length(q - vec3(0., 0.36, 0.22)) - 0.36, 4.3);
+    if (!gGemOnly) put(length(q - vec3(0., 0.2, -0.12)) - 0.085, m);
+  } else {
+    float L = 0.3, W = 0.21;
+    vec3 e = q - vec3(0., 0.55 * W + 0.04, 0.2);
+    put(sdEmerald(e, W, L), 2.);
+    if (!gGemOnly) prongs(e, vec2(W * 0.92, L * 0.92), -0.1, 0.03, 0.03, m);
+  }
+}
+void oPendant(vec3 p, vec4 par, float m){
+  float Rc = par.x;
+  // chain: links around a circle lying on the floor
+  float N = 2. * floor(2. * PI * Rc / 0.17);
+  float S = 2. * PI / N;
+  float a = atan(p.z, p.x);
+  float i0 = floor(a / S + 0.5);
+  if (!gGemOnly) for (int k = 0; k < 2; k++) {
+    float i = i0 + (k == 0 ? 0. : sign(a / S - i0));
+    vec2 xz = rot(-i * S) * p.xz;
+    vec3 l = vec3(xz.x - Rc, p.y, xz.y);
+    float par2 = mod(i + 1000., 2.);
+    float d = par2 < 0.5 ? sdLink(l - vec3(0., 0.011, 0.), 0.024, 0.028, 0.0105)
+                         : sdLink(vec3(l.y - 0.037, l.x, l.z), 0.024, 0.028, 0.0105);
+    put(d, m);
+  }
+  float r = par.y;
+  vec3 q = p - vec3(0., 0., Rc);
+  if (!gGemOnly) put(sdCap(q, vec3(0., 0.035, -0.02), vec3(0., 0.035, 0.1), 0.03), m);
+  if (par.z < 0.5) {
+    vec3 g = q - vec3(0., 0.86 * r + 0.05, 0.12 + r);
+    headRound(g, r, -0.86 * r - 0.03, m, 3.);
+  } else {
+    float k = 1.32;
+    vec3 g = q - vec3(0., 0.86 * r + 0.06, 0.16 + r * k + r * 0.4);
+    vec3 gs = vec3(g.x, g.y, g.z / k);
+    float sc = gScale; gScale = sc * 0.999;
+    put(sdBrilliant(gs, r), 2.);
+    if (!gGemOnly) prongs(gs, vec2(0.69 * r), -0.86 * r, 0.17 * r, 0.06 * r + 0.006, m);
+    halo(gs, r, r * 0.16, m);
+    gScale = sc;
+  }
+}
+void oPearls(vec3 p, vec4 par, float m){
+  float Rc = par.x, r = par.y;
+  float N = floor(2. * PI * Rc / (2.04 * r));
+  float S = 2. * PI / N;
+  float a = atan(p.z, p.x);
+  float i = floor(a / S + 0.5);
+  vec2 xz = rot(-i * S) * p.xz;
+  float idx = mod(i + N, N);
+  float rr = r * (0.97 + 0.05 * hash1(idx));
+  put(length(vec3(xz.x - Rc, p.y - rr, xz.y)) - rr, 4. + 0.9 * hash1(idx + 7.));
+  if (!gGemOnly) put(sdRBox(p - vec3(0., 0.14, -Rc), vec3(0.16, 0.1, 0.24), 0.08), m);
+}
+void oCurb(vec3 p, vec4 par, float m){
+  float Rc = par.x, s = par.y;
+  float le = 0.55 * s, r1 = s, r2 = 0.36 * s;
+  float sp = 2. * (le + r1) - 2.1 * r2;
+  float N = 2. * floor(2. * PI * Rc / (2. * sp));
+  float S = 2. * PI / N;
+  float a = atan(p.z, p.x);
+  float i0 = floor(a / S + 0.5);
+  for (int k = 0; k < 2; k++) {
+    float i = i0 + (k == 0 ? 0. : sign(a / S - i0));
+    vec2 xz = rot(-i * S) * p.xz;
+    vec3 l = vec3(xz.x - Rc, p.y - (r1 * 0.55 + r2), xz.y);
+    float tw = mod(i + 1000., 2.) < 0.5 ? 0.62 : -0.62;
+    l.xy = rot(tw) * l.xy;
+    put(sdLink(l, le, r1, r2), m);
+  }
+}
+void oTennis(vec3 p, vec4 par, float m){
+  float Rc = par.x, rs = par.y;
+  float N = 2. * floor(2. * PI * Rc / (2. * (2. * rs + 0.045)));
+  float S = 2. * PI / N;
+  float a = atan(p.z, p.x);
+  float i = floor(a / S + 0.5);
+  vec2 xz = rot(-i * S) * p.xz;
+  vec3 l = vec3(xz.x - Rc, p.y, xz.y);
+  float gy = 0.86 * rs + 0.08;
+  float gm = par.z > 1.5 ? 2. : (par.z > 0.5 && mod(i + 1000., 2.) > 0.5 ? 2. : 3.);
+  put(sdBrilliant(l - vec3(0., gy, 0.), rs), gm);
+  if (gGemOnly) return;
+  put(sdRBox(l - vec3(0., 0.06, 0.), vec3(rs * 0.92, 0.055, rs * 0.92), 0.035), m);
+  vec3 c = vec3(abs(l.x), l.y, abs(l.z));
+  put(length(c - vec3(rs * 0.7, gy + 0.03, rs * 0.7)) - rs * 0.17, m);
+  put(sdCap(l, vec3(0., 0.05, -S * Rc * 0.5), vec3(0., 0.05, S * Rc * 0.5), 0.025), m);
+}
+void oBangle(vec3 p, vec4 par, float m){
+  float R = par.x;
+  put(sdBand(p, R, 0.2, 0.42), m);
+  if (par.y > 0.5) { paveArc(p, R + 0.2 - 0.014, 0.075, 1.25, 0.095, m); paveArc(p, R + 0.2 - 0.014, 0.075, 1.25, -0.095, m); }
+}
+void oWatch(vec3 p, vec4 par, float m){
+  float R = par.x;
+  if (gGemOnly) return;
+  put(sdRCyl(p - vec3(0., 0.25, 0.), R, 0.25, 0.1), m);
+  put(sdTorus(p - vec3(0., 0.52, 0.), R - 0.12, 0.1), m);
+  put(sdRCyl(p - vec3(0., 0.51, 0.), R - 0.2, 0.012, 0.005), 6.);
+  float S = 2. * PI / 12.;
+  float a = atan(p.x, -p.z);
+  float i = floor(a / S + 0.5);
+  float ai = i * S;
+  vec2 rd = vec2(sin(ai), -cos(ai)), tg = vec2(cos(ai), sin(ai));
+  float u = dot(p.xz, rd), v = dot(p.xz, tg);
+  float Ru = (R - 0.24) * 0.8;
+  float wide = abs(i) < 0.5 ? 0.06 : 0.032;
+  put(sdRBox(vec3(v, p.y - 0.528, u - Ru), vec3(wide, 0.008, 0.13 * R / 2.), 0.006), 7.);
+  vec2 hd = vec2(sin(5.3233), -cos(5.3233)), md = vec2(sin(1.0472), -cos(1.0472));
+  put(sdCap(p, vec3(0., 0.54, 0.), vec3(hd.x, 0., hd.y) * 0.5 * R + vec3(0., 0.54, 0.), 0.035), 7.);
+  put(sdCap(p, vec3(0., 0.565, 0.), vec3(md.x, 0., md.y) * 0.74 * R + vec3(0., 0.565, 0.), 0.025), 7.);
+  put(sdRCyl(p - vec3(0., 0.565, 0.), 0.07, 0.03, 0.01), 7.);
+  put(sdCap(p, vec3(R, 0.27, 0.), vec3(R + 0.2, 0.27, 0.), 0.11), m);
+  put(sdRBox(vec3(abs(p.x) - 0.42 * R, p.y - 0.2, abs(p.z) - 1.0 * R), vec3(0.11, 0.1, 0.22 * R), 0.05), m);
+  float z = abs(p.z) - 1.18 * R;
+  if (z > -0.3 && z < 3.6) {
+    float P = 0.48;
+    float zz = mod(z, P) - P * 0.5;
+    float zz2 = mod(z + P * 0.5, P) - P * 0.5;
+    float cw = 0.17 * R, ow = 0.1 * R;
+    put(sdRBox(vec3(p.x, p.y - 0.12, zz), vec3(cw, 0.11, 0.21), 0.06), 7.);
+    put(sdRBox(vec3(abs(p.x) - (cw + ow + 0.03), p.y - 0.11, zz2), vec3(ow, 0.1, 0.21), 0.06), m);
+  }
+}
+float boundR(int t, vec4 p){
+  if (t <= 4) return 1.7;
+  if (t == 5) return p.z + 0.8;
+  if (t == 6) return p.x * 2. + p.z + 0.6;
+  if (t == 7) return p.z + 1.6;
+  if (t == 8) return p.x + 1.6;
+  if (t <= 11) return p.x + 0.7;
+  if (t == 12) return p.x + 0.6;
+  return 8.;
+}
+vec2 map(vec3 p){
+  gD = 1e5; gM = 0.;
+  if (!gGemOnly && !gNoFloor) { gD = p.y; gM = 8.; }
+  for (int i = 0; i < 4; i++) {
+    if (i >= uCount) break;
+    float s = uScale[i];
+    vec3 q = transpose(uRot[i]) * (p - uPos[i]) / s;
+    int ty = uType[i]; vec4 pr = uPar[i];
+    float b = boundR(ty, pr), lq = length(q);
+    if (lq > b + 0.15) { float d = (lq - b) * s; if (d < gD) { gD = d; gM = 0.; } continue; }
+    gScale = s;
+    float m = pr.w > 0.5 ? 7. : 1.;
+    if (ty == 0) oSolitaire(q, pr, m);
+    else if (ty == 1) oEternity(q, pr, m);
+    else if (ty == 2) oBand(q, pr, m);
+    else if (ty == 3) oSignet(q, pr, m);
+    else if (ty == 4) oColorStone(q, pr, m);
+    else if (ty == 5) oStuds(q, pr, m);
+    else if (ty == 6) oHoops(q, pr, m);
+    else if (ty == 7) oDrops(q, pr, m);
+    else if (ty == 8) oPendant(q, pr, m);
+    else if (ty == 9) oPearls(q, pr, m);
+    else if (ty == 10) oCurb(q, pr, m);
+    else if (ty == 11) oTennis(q, pr, m);
+    else if (ty == 12) oBangle(q, pr, m);
+    else oWatch(q, pr, m);
+  }
+  return vec2(gD, gM);
+}
+vec3 calcN(vec3 p){
+  const vec2 k = vec2(1., -1.); float e = 0.00045;
+  return normalize(k.xyy * map(p + k.xyy * e).x + k.yyx * map(p + k.yyx * e).x + k.yxy * map(p + k.yxy * e).x + k.xxx * map(p + k.xxx * e).x);
+}
+float band1(float x, float h, float w){ return 1. - smoothstep(h - w, h + w, abs(x)); }
+vec3 env(vec3 d, float ro){
+  float w = 0.025 + ro * 0.6;
+  float y = d.y;
+  vec3 c = mix(uEnvLow, uEnvHigh, smoothstep(-0.2, 0.9, y));
+  c = mix(c, uFloorEnv, smoothstep(0.02, -0.12, y));
+  float az = atan(d.x, d.z);
+  float el = asin(clamp(y, -1., 1.));
+  if (y > 0.05) {
+    vec2 tp = d.xz / y;
+    c += band1(tp.x, 0.55, w * 2.) * band1(tp.y + 0.15, 0.4, w * 2.) * vec3(3.4, 3.3, 3.1);
+  }
+  c += band1(az + 1.75, 0.2, w) * band1(el - 0.32, 0.5, w) * vec3(2.6, 2.65, 2.8);
+  c += band1(az - 1.45, 0.16, w) * band1(el - 0.28, 0.45, w) * vec3(1.9, 1.8, 1.7);
+  c += band1(az - 0.25, 0.55, w + 0.12) * band1(el - 0.12, 0.2, w + 0.08) * vec3(0.8, 0.78, 0.74);
+  c += band1(abs(az) - 3.05, 0.22, w) * band1(el - 0.42, 0.32, w) * vec3(1.5);
+  return c * uEnvGain;
+}
+float softShadow(vec3 ro, vec3 rd, float k){
+  bool nf = gNoFloor; gNoFloor = true;
+  float res = 1., t = 0.01;
+  for (int i = 0; i < 56; i++) {
+    vec2 hm = map(ro + rd * t);
+    float h = hm.x;
+    if (hm.y > 0.5) res = min(res, k * h / t);
+    if (res < 0.002 || t > 9.) break;
+    t += clamp(h, 0.01, 0.4);
+  }
+  gNoFloor = nf;
+  return clamp(res, 0., 1.);
+}
+float calcAO(vec3 p, vec3 n){
+  float occ = 0., sca = 1.;
+  for (int i = 0; i < 5; i++) {
+    float h = 0.01 + 0.07 * float(i);
+    vec2 hm = map(p + n * h);
+    float d = hm.y < 0.5 ? max(hm.x, h) : hm.x;
+    occ += (h - d) * sca;
+    sca *= 0.75;
+  }
+  return clamp(1. - 2.2 * occ, 0., 1.);
+}
+vec3 bgCol(vec2 uv){
+  vec3 c = mix(uBgBot, uBgTop, smoothstep(0.0, 1.0, uv.y));
+  vec2 g = (uv - uGlowPos.xy) * vec2(uRes.x / uRes.y, 1.);
+  c += uGlow * exp(-dot(g, g) * uGlowPos.z) * uBgTop;
+  return c;
+}
+vec3 shadeGem(vec3 p, vec3 rd, vec3 n, vec3 absorb, float ior, float disp){
+  float F0 = pow((ior - 1.) / (ior + 1.), 2.);
+  float ci = clamp(dot(-rd, n), 0., 1.);
+  float Fr = F0 + (1. - F0) * pow(1. - ci, 5.);
+  vec3 col = Fr * env(reflect(rd, n), 0.);
+  gGemOnly = true;
+  for (int c = 0; c < 3; c++) {
+    float eta = ior + (float(c) - 1.) * disp;
+    vec3 dir = refract(rd, n, 1. / eta);
+    vec3 pos = p - n * 0.002;
+    float w = 1. - Fr, acc = 0.;
+    for (int b = 0; b < 5; b++) {
+      float t = 0.;
+      for (int k = 0; k < 40; k++) {
+        float d = -map(pos + dir * t).x;
+        if (d < 0.0004) break;
+        t += max(d * 0.9, 0.0012);
+      }
+      pos += dir * t;
+      vec3 nn = calcN(pos);
+      w *= exp(-absorb[c] * t / gScale);
+      vec3 o = refract(dir, -nn, eta);
+      if (dot(o, o) < 1e-4) { dir = reflect(dir, -nn); pos -= nn * 0.0015; continue; }
+      float cc = clamp(dot(dir, nn), 0., 1.);
+      float Fi = F0 + (1. - F0) * pow(1. - cc, 5.);
+      acc += w * (1. - Fi) * env(o, 0.)[c];
+      w *= Fi;
+      dir = reflect(dir, -nn); pos -= nn * 0.0015;
+    }
+    acc += w * env(dir, 0.)[c] * 0.6;
+    col[c] += acc;
+  }
+  gGemOnly = false;
+  return col;
+}
+vec3 shade(vec3 p, vec3 rd, float mat, vec2 suv){
+  vec3 n = calcN(p);
+  vec3 L = normalize(uLight);
+  float m = floor(mat + 0.001);
+  float ao = calcAO(p, n);
+  if (m == 2. || m == 3.) {
+    vec3 ab = m == 2. ? uGemAbs : vec3(0.);
+    float io = m == 2. ? uGemIor : 2.42;
+    float ds = m == 2. ? uGemDisp : 0.035;
+    return shadeGem(p, rd, n, ab, io, ds) * mix(0.6, 1., ao);
+  }
+  vec3 r = reflect(rd, n);
+  float ci = clamp(dot(-rd, n), 0., 1.);
+  float sh = softShadow(p + n * 0.003, L, 12.);
+  if (m == 1. || m == 7.) {
+    vec3 F0 = m == 1. ? uMetal : uMetal2;
+    vec3 F = F0 + (1. - F0) * pow(1. - ci, 5.);
+    float vis = softShadow(p + n * 0.003, r, 6.);
+    vec3 e = env(r, uRough);
+    vec3 c = e * F * mix(0.22, 1., vis);
+    c += F0 * pow(max(dot(r, L), 0.), 180.) * 3.5 * sh;
+    return c * mix(0.4, 1., ao);
+  }
+  if (m == 4.) {
+    float v = fract(mat);
+    vec3 base = uPearl * (0.94 + 0.08 * v);
+    float dif = max(dot(n, L), 0.) * mix(0.35, 1., sh);
+    vec3 c = base * (0.55 * dif + 0.42 * (0.55 + 0.45 * n.y) * ao);
+    float F = 0.04 + 0.96 * pow(1. - ci, 5.);
+    vec3 irid = 0.5 + 0.5 * cos(6.2831 * (vec3(0., 0.33, 0.67) + (1. - ci) * 1.4 + v * 0.3));
+    c += env(r, 0.18) * (0.06 + F * 0.5) * mix(vec3(1.), irid, 0.35) * mix(0.5, 1., ao);
+    c += pow(1. - ci, 3.) * 0.08 * base;
+    return c;
+  }
+  if (m == 5.) {
+    float F = 0.045 + 0.955 * pow(1. - ci, 5.);
+    return vec3(0.012) + env(r, 0.02) * F * 0.9;
+  }
+  if (m == 6.) {
+    float dif = max(dot(n, L), 0.) * mix(0.4, 1., sh);
+    float rr = length(p.xz);
+    float sun = 0.92 + 0.08 * sin(atan(p.z, p.x) * 180.);
+    vec3 c = uDial * sun * (0.75 * dif + 0.55 * ao);
+    float F = 0.04 + 0.96 * pow(1. - ci, 5.);
+    return c + env(r, 0.25) * F * 0.1;
+  }
+  return vec3(1., 0., 1.);
+}
+vec3 renderPx(vec2 fc){
+  vec2 suv = fc / uRes;
+  vec2 uv = (fc - 0.5 * uRes) / uRes.y;
+  vec3 fw = normalize(uCamTarget - uCamPos);
+  vec3 rt = normalize(cross(fw, vec3(0., 1., 0.)));
+  vec3 up = cross(rt, fw);
+  float fl = 0.5 / tan(uFov * 0.5);
+  vec3 rd = normalize(fw * fl + uv.x * rt + uv.y * up);
+  vec3 ro = uCamPos;
+  vec3 bg = bgCol(suv);
+  float t = 0.05; float mat = -1.;
+  for (int i = 0; i < 240; i++) {
+    vec2 h = map(ro + rd * t);
+    if (h.x < 0.00022 * t + 0.00005) { mat = h.y; break; }
+    t += h.x * 0.92;
+    if (t > 60.) break;
+  }
+  if (mat < 0.) return bg;
+  vec3 p = ro + rd * t;
+  if (mat > 7.5) {
+    vec3 L = normalize(uLight);
+    float sh = softShadow(p + vec3(0., 0.001, 0.), L, 9.);
+    float ao = calcAO(p, vec3(0., 1., 0.));
+    vec3 c = bg * mix(1. - uShadow, 1., sh) * mix(0.55, 1., ao);
+    if (uFloorRefl > 0.) {
+      vec3 r2 = reflect(rd, vec3(0., 1., 0.));
+      gNoFloor = true;
+      float t2 = 0.01; float m2 = -1.;
+      for (int i = 0; i < 120; i++) {
+        vec2 h = map(p + r2 * t2);
+        if (h.x < 0.0004 * t2 + 0.0001) { m2 = h.y; break; }
+        t2 += h.x * 0.95;
+        if (t2 > 12.) break;
+      }
+      if (m2 > 0.) {
+        vec3 rc = shade(p + r2 * t2, r2, m2, suv);
+        float fade = exp(-t2 * 0.9);
+        c = mix(c, rc, uFloorRefl * fade);
+      }
+      gNoFloor = false;
+    }
+    return c;
+  }
+  return shade(p, rd, mat, suv);
+}
+vec3 tone(vec3 x){ vec3 k = 0.82 + 0.18 * (1. - exp(-(x - 0.82) / 0.18)); return mix(x, k, step(0.82, x)); }
+void main(){
+  gGemOnly = false; gNoFloor = false; gScale = 1.;
+  vec3 acc = vec3(0.);
+  for (int sx = 0; sx < 3; sx++) {
+    if (sx >= uAA) break;
+    for (int sy = 0; sy < 3; sy++) {
+      if (sy >= uAA) break;
+      vec2 off = (vec2(float(sx), float(sy)) + 0.5) / float(uAA) - 0.5;
+      acc += renderPx(gl_FragCoord.xy + off);
+    }
+  }
+  acc /= float(uAA * uAA);
+  vec3 c = tone(acc * uExposure);
+  c = pow(max(c, 0.), vec3(1. / 2.2));
+  c += (hash1(dot(gl_FragCoord.xy, vec2(1.7, 9.3))) - 0.5) / 255.;
+  outCol = vec4(c, 1.);
+}`;
+
+const VERT = `#version 300 es
+in vec2 aPos; void main(){ gl_Position = vec4(aPos, 0., 1.); }`;
+
+function lin(hex) {
+  const n = parseInt(hex.replace('#', ''), 16);
+  return [(n >> 16) & 255, (n >> 8) & 255, n & 255].map(v => Math.pow(v / 255, 2.2));
+}
+function rotMat(e) { // degrees, R = Ry * Rx * Rz ; column-major
+  const [x, y, z] = (e || [0, 0, 0]).map(v => v * Math.PI / 180);
+  const cx = Math.cos(x), sx = Math.sin(x), cy = Math.cos(y), sy = Math.sin(y), cz = Math.cos(z), sz = Math.sin(z);
+  const Ry = [[cy, 0, sy], [0, 1, 0], [-sy, 0, cy]];
+  const Rx = [[1, 0, 0], [0, cx, -sx], [0, sx, cx]];
+  const Rz = [[cz, -sz, 0], [sz, cz, 0], [0, 0, 1]];
+  const mul = (A, B) => A.map((r, i) => [0, 1, 2].map(j => r[0] * B[0][j] + r[1] * B[1][j] + r[2] * B[2][j]));
+  const R = mul(mul(Ry, Rx), Rz);
+  return [R[0][0], R[1][0], R[2][0], R[0][1], R[1][1], R[2][1], R[0][2], R[1][2], R[2][2]];
+}
+
+const METALS = {
+  gialloF: '#FFD38A', giallo: '#F7C873', rosa: '#F4B9A0', bianco: '#E4E2DE', argento: '#F0EFEC', acciaio: '#B9B8B4', nero: '#3A3A3C'
+};
+const GEMS = {
+  diamante: { abs: [0, 0, 0], ior: 2.42, disp: 0.035 },
+  zaffiro: { abs: [5.5, 2.6, 0.35], ior: 1.77, disp: 0.012 },
+  smeraldo: { abs: [4.2, 0.5, 2.8], ior: 1.58, disp: 0.008 },
+  rubino: { abs: [0.25, 6.0, 3.2], ior: 1.77, disp: 0.012 },
+  rosa: { abs: [0.15, 1.9, 0.75], ior: 1.77, disp: 0.012 },
+  acqua: { abs: [2.2, 0.35, 0.18], ior: 1.57, disp: 0.008 }
+};
+const STAGES = {
+  studio: { top: '#F4F3F0', bot: '#E0DED9', envLow: [0.05, 0.05, 0.05], envHigh: [0.22, 0.22, 0.21], floorK: 0.55, glow: 0.12, glowPos: [0.5, 0.62, 4], shadow: 0.42, refl: 0, gain: 1, exposure: 1.0 },
+  pietra: { top: '#E9E6E1', bot: '#D3CFC8', envLow: [0.05, 0.05, 0.05], envHigh: [0.2, 0.2, 0.19], floorK: 0.5, glow: 0.12, glowPos: [0.5, 0.6, 4], shadow: 0.45, refl: 0, gain: 1, exposure: 1.0 },
+  cipria: { top: '#F2E6E1', bot: '#DCC8C0', envLow: [0.05, 0.045, 0.045], envHigh: [0.22, 0.2, 0.19], floorK: 0.5, glow: 0.12, glowPos: [0.5, 0.6, 4], shadow: 0.42, refl: 0, gain: 1, exposure: 1.0 },
+  notte: { top: '#1B1B1D', bot: '#0B0B0C', envLow: [0.03, 0.03, 0.032], envHigh: [0.2, 0.2, 0.21], floorK: 0.25, glow: 0.9, glowPos: [0.62, 0.55, 2.2], shadow: 0.6, refl: 0.32, gain: 1.05, exposure: 1.0 },
+  ardesia: { top: '#232326', bot: '#111113', envLow: [0.03, 0.03, 0.032], envHigh: [0.2, 0.2, 0.2], floorK: 0.3, glow: 0.55, glowPos: [0.5, 0.64, 2.6], shadow: 0.55, refl: 0.22, gain: 1.05, exposure: 1.0 },
+  mare: { top: '#1D3A3A', bot: '#0C1A1B', envLow: [0.03, 0.04, 0.04], envHigh: [0.18, 0.22, 0.22], floorK: 0.3, glow: 0.7, glowPos: [0.5, 0.6, 2.5], shadow: 0.6, refl: 0.25, gain: 1.05, exposure: 1.0 }
+};
+
+class JewelRenderer {
+  constructor() {
+    this.canvas = document.createElement('canvas');
+    const gl = this.canvas.getContext('webgl2', { preserveDrawingBuffer: true, antialias: false, alpha: false });
+    if (!gl) throw new Error('no webgl2');
+    this.gl = gl;
+    const sh = (type, src) => {
+      const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s);
+      if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s));
+      return s;
+    };
+    const pr = gl.createProgram();
+    gl.attachShader(pr, sh(gl.VERTEX_SHADER, VERT));
+    gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, FRAG));
+    gl.linkProgram(pr);
+    if (!gl.getProgramParameter(pr, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(pr));
+    this.pr = pr;
+    gl.useProgram(pr);
+    const buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+    const loc = gl.getAttribLocation(pr, 'aPos');
+    gl.enableVertexAttribArray(loc);
+    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+    this.u = {};
+  }
+  U(n) { if (!(n in this.u)) this.u[n] = this.gl.getUniformLocation(this.pr, n); return this.u[n]; }
+  setup(rc, W, H, aa) {
+    const gl = this.gl, U = n => this.U(n);
+    this.canvas.width = W; this.canvas.height = H;
+    gl.viewport(0, 0, W, H);
+    const st = STAGES[rc.stage || 'studio'];
+    const gem = GEMS[rc.gem || 'diamante'];
+    const objs = rc.objects.slice(0, 4);
+    gl.uniform2f(U('uRes'), W, H);
+    const c = rc.cam;
+    const tg = c.target, az = c.az * Math.PI / 180, el = c.el * Math.PI / 180;
+    const pos = [tg[0] + c.dist * Math.cos(el) * Math.sin(az), tg[1] + c.dist * Math.sin(el), tg[2] + c.dist * Math.cos(el) * Math.cos(az)];
+    gl.uniform3fv(U('uCamPos'), pos);
+    gl.uniform3fv(U('uCamTarget'), tg);
+    gl.uniform1f(U('uFov'), (c.fov || 28) * Math.PI / 180);
+    gl.uniform1i(U('uCount'), objs.length);
+    const types = new Int32Array(4), P = new Float32Array(12), R = new Float32Array(36), PA = new Float32Array(16), S = new Float32Array(4);
+    objs.forEach((o, i) => {
+      types[i] = o.type;
+      P.set(o.pos || [0, 0, 0], i * 3);
+      R.set(rotMat(o.rot), i * 9);
+      PA.set((o.par || [0, 0, 0, 0]).concat([0, 0, 0, 0]).slice(0, 4), i * 4);
+      S[i] = o.scale || 1;
+    });
+    gl.uniform1iv(U('uType[0]'), types);
+    gl.uniform3fv(U('uPos[0]'), P);
+    gl.uniformMatrix3fv(U('uRot[0]'), false, R);
+    gl.uniform4fv(U('uPar[0]'), PA);
+    gl.uniform1fv(U('uScale[0]'), S);
+    gl.uniform3fv(U('uMetal'), lin(METALS[rc.metal || 'giallo']));
+    gl.uniform3fv(U('uMetal2'), lin(METALS[rc.metal2 || rc.metal || 'bianco']));
+    gl.uniform3fv(U('uGemAbs'), gem.abs);
+    gl.uniform1f(U('uGemIor'), gem.ior);
+    gl.uniform1f(U('uGemDisp'), gem.disp);
+    gl.uniform1f(U('uRough'), rc.rough != null ? rc.rough : 0.05);
+    gl.uniform3fv(U('uPearl'), lin(rc.pearl || '#EFE6DA'));
+    gl.uniform3fv(U('uDial'), lin(rc.dial || '#1E2C4A'));
+    const top = lin(rc.bgTop || st.top), bot = lin(rc.bgBot || st.bot);
+    gl.uniform3fv(U('uBgTop'), top);
+    gl.uniform3fv(U('uBgBot'), bot);
+    gl.uniform3fv(U('uEnvLow'), st.envLow);
+    gl.uniform3fv(U('uEnvHigh'), st.envHigh);
+    gl.uniform3fv(U('uFloorEnv'), bot.map(v => v * st.floorK));
+    gl.uniform3fv(U('uGlowPos'), rc.glowPos || st.glowPos);
+    gl.uniform1f(U('uGlow'), rc.glow != null ? rc.glow : st.glow);
+    gl.uniform1f(U('uEnvGain'), st.gain);
+    gl.uniform1f(U('uFloorRefl'), rc.refl != null ? rc.refl : st.refl);
+    gl.uniform1f(U('uShadow'), st.shadow);
+    gl.uniform1f(U('uExposure'), rc.exposure || st.exposure);
+    gl.uniform3fv(U('uLight'), rc.light || [-0.45, 1.0, 0.55]);
+    gl.uniform1i(U('uAA'), aa);
+  }
+  async render(rc, W, H, opts) {
+    opts = opts || {};
+    const gl = this.gl;
+    this.setup(rc, W, H, opts.aa || 1);
+    gl.enable(gl.SCISSOR_TEST);
+    if (!this.px) this.px = opts.startPx || 40000;
+    let last = performance.now();
+    for (let y = 0; y < H;) {
+      const rows = Math.max(4, Math.min(H - y, Math.round(this.px / W)));
+      gl.scissor(0, y, W, rows);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+      y += rows;
+      if (opts.yieldFn) {
+        await opts.yieldFn();
+        const now = performance.now(), dt = now - last; last = now;
+        if (dt < 22) this.px = Math.min(this.px * 1.35, 2e6);
+        else if (dt > 45) this.px = Math.max(this.px * 0.6, 6000);
+      }
+    }
+    gl.disable(gl.SCISSOR_TEST);
+    return await new Promise(res => this.canvas.toBlob(b => res(b), 'image/jpeg', opts.quality || 0.88));
+  }
+}
+
+global.JewelRenderer = JewelRenderer;
+global.JR_STAGES = STAGES;
+})(window);
+
+</script>
+<script>
+(function(){
+'use strict';
+const SHOP = 'negozio.html';
+const $ = s => document.querySelector(s);
+const $$ = s => Array.from(document.querySelectorAll(s));
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const lerp = (a, b, t) => a + (b - a) * t;
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const MOB = Math.min(screen.width, screen.height) < 700 || innerWidth < 760;
+const TS = window.SP_TEST_SCALE || 1;
+const N = window.SP_TEST_FRAMES || (MOB ? 17 : 33);
+document.documentElement.classList.add('js');
+
+/* ---------- shop links ---------- */
+$$('[data-shop]').forEach(a => { const h = a.dataset.shop; a.href = SHOP + (h ? '#' + h : ''); });
+
+/* ---------- camera helper: put world point `aim` at frame position (fx, fy) ---------- */
+function cam(aim, az, el, dist, fov, A, fx, fy){
+  const a = az * Math.PI / 180, e = el * Math.PI / 180;
+  const dir = [Math.cos(e) * Math.sin(a), Math.sin(e), Math.cos(e) * Math.cos(a)];
+  const fw = dir.map(v => -v);
+  let rt = [fw[1] * 0 - fw[2] * 1, fw[2] * 0 - fw[0] * 0, fw[0] * 1 - fw[1] * 0];
+  const rl = Math.hypot(...rt); rt = rt.map(v => v / rl);
+  const up = [rt[1] * fw[2] - rt[2] * fw[1], rt[2] * fw[0] - rt[0] * fw[2], rt[0] * fw[1] - rt[1] * fw[0]];
+  const fl = 0.5 / Math.tan(fov * Math.PI / 360);
+  const ux = (fx - 0.5) * A, uy = 0.5 - fy;
+  const ka = ux * dist / fl, kb = uy * dist / fl;
+  const target = aim.map((v, i) => v - rt[i] * ka - up[i] * kb);
+  return {target, dist, az, el, fov};
+}
+const S = (u, a, b) => a + (b - a) * u;           // linear in u
+const GOLD_X = 0.618, GOLD_Y = 0.382;
+
+/* ---------- golden spiral geometry ---------- */
+const PHI = (1 + Math.sqrt(5)) / 2;
+function spiral(W, H, steps){
+  let x = 0, y = 0, w = W, h = H;
+  const sq = [], arcs = [];
+  let px = 0, py = H;
+  arcs.push(`M${px} ${py}`);
+  for (let i = 0; i < steps; i++) {
+    const d = i % 4;
+    if (d === 0) { const s = h; sq.push([x, y, s]); arcs.push(`A${s} ${s} 0 0 1 ${x + s} ${y}`); x += s; w -= s; }
+    else if (d === 1) { const s = w; sq.push([x, y, s]); arcs.push(`A${s} ${s} 0 0 1 ${x + s} ${y + s}`); y += s; h -= s; }
+    else if (d === 2) { const s = h; sq.push([x + w - s, y, s]); arcs.push(`A${s} ${s} 0 0 1 ${x + w - s} ${y + s}`); w -= s; }
+    else { const s = w; sq.push([x, y + h - s, s]); arcs.push(`A${s} ${s} 0 0 1 ${x} ${y + h - s}`); h -= s; }
+  }
+  return {sq, d:arcs.join(' '), eye:[x + w / 2, y + h / 2]};
+}
+const SPI = spiral(1618, 1000, 11);
+const EYE = [SPI.eye[0] / 1618, SPI.eye[1] / 1000];
+
+/* ---------- shots: u in [0,1] is the position along the camera move ---------- */
+const RINGY = r => 1 + 0.85 + 0.15 * 0.55 + 0.86 * r;   // gem centre height for a ring standing at y=1
+const SHOTS = {
+  'hero': {w:1280, h:720, bias:-20, fn:(u, A) => ({metal:'bianco', gem:'diamante', stage:'notte', light:[-0.6 + 0.6 * u, 1, 0.55],
+    objects:[{type:0, pos:[0.9, 1, 0.5], rot:[0, S(u, -42, -8), 0], par:[0.32, 1, 0, 0]}, {type:11, pos:[-0.3, 0, -1.5], rot:[0, S(u, 4, 22), 0], par:[1.9, 0.13, 0, 0]}],
+    cam:cam([0.9, RINGY(0.32) - 0.15, 0.5], S(u, 4, 14), S(u, 12, 15), S(u, 6.7, 6.1), 30, A, GOLD_X, GOLD_Y)})},
+  'hero-m': {w:600, h:1000, bias:-20, fn:(u, A) => ({metal:'bianco', gem:'diamante', stage:'notte', glowPos:[0.5, 0.62, 2.4], light:[-0.6 + 0.6 * u, 1, 0.55],
+    objects:[{type:0, pos:[0.3, 1, 0.6], rot:[0, S(u, -42, -8), 0], par:[0.32, 1, 0, 0]}, {type:11, pos:[-0.2, 0, -1.4], rot:[0, S(u, 4, 22), 0], par:[1.9, 0.13, 0, 0]}],
+    cam:cam([0.3, RINGY(0.32) - 0.2, 0.6], S(u, 2, 12), S(u, 14, 18), S(u, 8.4, 7.6), 30, A, 0.5, 0.3)})},
+  'aurea': {w:1100, h:680, fn:(u, A) => ({metal:'bianco', gem:'zaffiro', stage:'notte', glowPos:[EYE[0], 1 - EYE[1], 3], light:[-0.5 + 0.8 * u, 1, 0.4],
+    objects:[{type:8, pos:[0, 0, -1.6], rot:[0, 0, 0], par:[2.2, 0.28, 1, 0]}],
+    cam:cam([0, 0.3, 1.24], S(u, -14, 14), S(u, 60, 54), S(u, 4.6, 4.2), 30, A, EYE[0], EYE[1])})},
+  'c-promessa': {w:1100, h:680, wm:600, hm:1000, fn:(u, A, m) => ({metal:'bianco', gem:'diamante', stage:'studio', light:[-0.5 + 0.5 * u, 1, 0.55],
+    objects:[{type:0, pos:[0, 1, 0], rot:[0, S(u, -62, -12), 0], par:[0.32, 0, 0, 0]}],
+    cam:cam([0, RINGY(0.32) - 0.2, 0], S(u, 12, 20), 14, m ? 7.6 : S(u, 5.4, 4.8), 30, A, m ? 0.5 : GOLD_X, m ? 0.3 : GOLD_Y)})},
+  'c-zagara': {w:1100, h:680, wm:600, hm:1000, fn:(u, A, m) => ({metal:'rosa', gem:'rosa', stage:'cipria', light:[-0.5 + 0.5 * u, 1, 0.55],
+    objects:[{type:8, pos:[-1.0, 0, -1.9], rot:[0, S(u, -6, 6), 0], par:[2.2, 0.26, 1, 0]}, {type:0, pos:[1.1, 1, 0.8], rot:[0, S(u, -64, -24), 0], par:[0.28, 1, 0, 0]}],
+    cam:cam([1.1, RINGY(0.28) - 0.2, 0.8], S(u, 6, 14), 24, m ? 9.2 : S(u, 5.8, 5.1), 30, A, m ? 0.55 : GOLD_X, m ? 0.3 : GOLD_Y)})},
+  'c-mare': {w:1100, h:680, wm:600, hm:1000, fn:(u, A, m) => ({metal:'giallo', metal2:'bianco', gem:'smeraldo', stage:'mare', light:[-0.5 + 0.5 * u, 1, 0.55],
+    objects:[{type:4, pos:[0, 1, 0], rot:[0, S(u, -60, -14), 0], par:[0.34, 0, 0, 0]}],
+    cam:cam([0, 2.0, 0], S(u, 14, 24), 15, m ? 7.4 : S(u, 5.4, 4.8), 30, A, m ? 0.5 : GOLD_X, m ? 0.3 : GOLD_Y)})},
+  'c-riviera': {w:1100, h:680, wm:600, hm:1000, fn:(u, A, m) => ({metal:'bianco', gem:'diamante', stage:'notte', light:[-0.6 + 0.8 * u, 1, 0.5],
+    objects:[{type:11, pos:[0, 0, 0], rot:[0, S(u, -20, 20), 0], par:[1.9, 0.13, 0, 0]}],
+    cam:cam([0, 0.1, 1.9], S(u, -4, 6), S(u, 20, 26), m ? 8.6 : S(u, 4.3, 3.7), 30, A, m ? 0.5 : GOLD_X, m ? 0.34 : 0.5)})},
+  'macro': {w:800, h:990, fn:(u, A) => ({metal:'bianco', gem:'diamante', stage:'notte', glowPos:[0.5, 0.6, 2.2], light:[-0.6 + 1.0 * u, 1, 0.5],
+    objects:[{type:0, pos:[0, 1, 0], rot:[0, -30, 0], par:[0.27, 0, 1, 0]}],
+    cam:cam([0, RINGY(0.27) - 0.12, 0], S(u, -16, 34), S(u, 22, 32), 4.3, 26, A, 0.5, GOLD_Y)})},
+  'sposi': {w:1280, h:720, wm:600, hm:1000, fn:(u, A, m) => ({metal:'giallo', metal2:'bianco', gem:'diamante', stage:'pietra', light:[-0.5 + 0.5 * u, 1, 0.55],
+    objects:[{type:0, pos:[0.9, 1, 0.5], rot:[0, S(u, -46, -16), 0], par:[0.3, 0, 0, 1]}, {type:2, pos:[-0.5, 0.99, -0.3], rot:[0, S(u, -26, -6), 0], par:[0.22, 0.14, 0, 0]}, {type:2, pos:[-1.6, 0.99, -1.1], rot:[0, S(u, -44, -24), 0], par:[0.17, 0.12, 0, 1]}],
+    cam:cam([-0.2, 1.3, -0.2], S(u, 8, 16), 14, m ? 12.5 : S(u, 7.6, 7.0), 30, A, m ? 0.5 : 0.382, m ? 0.3 : 0.45)})},
+  'visita': {w:1000, h:618, fn:(u, A) => ({metal:'giallo', gem:'diamante', stage:'ardesia', light:[-0.5 + 0.6 * u, 1, 0.5],
+    objects:[{type:1, pos:[0.6, 1, 0.3], rot:[0, S(u, -50, -20), 0], par:[1.6, 0, 0, 0]}, {type:6, pos:[-1.4, 0, -0.8], rot:[0, S(u, 10, 30), 0], par:[0.95, 0, 1.25, 0]}],
+    cam:cam([0, 1.1, -0.2], S(u, 6, 14), 16, S(u, 7.4, 6.8), 30, A, 0.55, 0.45)})}
+};
+/* product pieces */
+const PIECES = [
+  {id:'promessa-halo', c:'Promessa', name:'Solitario Promessa Halo', d:'Oro bianco 750‰ · diamante 0,50 ct con contorno', pr:'3.480 €', t:0, par:[0.28, 1, 0, 0], metal:'bianco', gem:'diamante'},
+  {id:'mare-anello', c:'Mare Nostrum', name:'Anello Mare Nostrum', d:'Oro giallo 750‰ · smeraldo 1,10 ct e diamanti', pr:'4.600 €', t:4, par:[0.34, 0, 0, 0], metal:'giallo', metal2:'bianco', gem:'smeraldo'},
+  {id:'notte-pendente', c:'Notte', name:'Pendente Notte', d:'Oro bianco 750‰ · zaffiro blu ovale 1,20 ct', pr:'1.890 €', t:8, par:[2.2, 0.28, 1, 0], metal:'bianco', gem:'zaffiro'},
+  {id:'riviera-tennis', c:'Riviera', name:'Tennis Riviera', d:'Oro bianco 750‰ · diamanti 2,00 ct, 18 cm', pr:'4.900 €', t:11, par:[1.9, 0.13, 0, 0], metal:'bianco', gem:'diamante'},
+  {id:'cala-pendenti', c:'Cala', name:'Pendenti Cala', d:'Oro giallo 750‰ · perle Akoya 8 mm e diamanti', pr:'420 €', t:7, par:[0, 0, 0.72, 0], metal:'giallo', pearl:'#F1E8DC'},
+  {id:'tempo-automatico', c:'Tempo', name:'Tempo Automatico 40 mm', d:'Acciaio · quadrante blu soleil, vetro zaffiro', pr:'1.290 €', t:13, par:[2.0, 0, 0, 0], metal:'acciaio', metal2:'bianco', dial:'#2D4F94'}
+];
+const PV = {0:{tg:[0, 1.12, 0], dist:6.2, az:20, el:15, rot:[-55, -15]}, 4:{tg:[0, 1.12, 0], dist:6.2, az:20, el:15, rot:[-55, -15]},
+  8:{tg:[0, 0.2, 1.0], dist:5.2, az:0, el:50, rot:[-4, 4], pos:[0, 0, -1.6], az2:24}, 11:{tg:[0, 0, 0.2], dist:8.8, az:0, el:42, rot:[-16, 16]},
+  7:{tg:[0, 0.15, -0.35], dist:6.3, az:0, el:55, rot:[-16, 16]}, 13:{tg:[0, 0.3, 0.6], dist:10.5, az:0, el:58, rot:[-12, 12]}};
+PIECES.forEach(p => {
+  const v = PV[p.t];
+  SHOTS['p-' + p.id] = {w:480, h:594, fn:u => ({metal:p.metal, metal2:p.metal2, gem:p.gem, dial:p.dial, pearl:p.pearl, stage:'ardesia', light:[-0.5 + 0.6 * u, 1, 0.55],
+    objects:[{type:p.t, pos:v.pos || (p.t <= 4 ? [0, 1, 0] : [0, 0, 0]), rot:[0, S(u, v.rot[0], v.rot[1]), 0], par:p.par}],
+    cam:{target:v.tg, dist:v.dist * (p.t === 4 ? 1.0 : 1) - 0.3 * u, az:v.az + (v.az2 || 6) * (u - 0.5), el:v.el, fov:30}})};
+});
+$('#pieces').innerHTML = PIECES.map((p, i) => `<article class="piece rv ${['', 'd1', 'd2'][i % 3]}">
+  <a class="live" data-shot="p-${p.id}" data-focus=".5,.5" data-shop="p-${p.id}" aria-label="${p.name}, nel negozio online" href="${SHOP}#p-${p.id}"><div class="kb"><canvas></canvas></div><span class="wait">S</span></a>
+  <div class="meta"><span class="c">${p.c}</span><h3>${p.name}</h3><span class="pr num">${p.pr}</span><span class="d">${p.d}</span><a class="lnk go" href="${SHOP}#p-${p.id}">Acquista ↗</a></div>
+</article>`).join('');
+
+/* ---------- frame order: endpoints first, then halves, quarters ... ---------- */
+function buildOrder(n){
+  if (n <= 2) return n === 1 ? [0] : [0, 1];
+  const o = [0, n - 1]; let step = n - 1;
+  while (step > 1) { const h = step / 2; for (let i = h; i < n; i += step) o.push(i); step = h; }
+  return o;
+}
+const ORDER = buildOrder(N);
+const levelOf = k => k < 2 ? 0 : Math.floor(Math.log2(k - 1)) + 1;
+Object.entries(SHOTS).forEach(([k, s]) => {
+  const m = MOB && s.wm;
+  s.key = k; s.m = !!m;
+  s.W = Math.round((m ? s.wm : s.w) * (MOB && !m ? 0.7 : 1) * TS);
+  s.H = Math.round((m ? s.hm : s.h) * (MOB && !m ? 0.7 : 1) * TS);
+  s.frames = new Array(N).fill(null); s.next = 0; s.avail = []; s.players = [];
+});
+
+/* ---------- cache ---------- */
+const VER = 'c1';
+let db = null;
+const idbOpen = () => new Promise(res => { try { const rq = indexedDB.open('speciale-cinema', 1); rq.onupgradeneeded = () => rq.result.createObjectStore('f'); rq.onsuccess = () => { db = rq.result; res(); }; rq.onerror = () => res(); } catch (e) { res(); } });
+const idbGet = k => new Promise(res => { if (!db) return res(null); try { const rq = db.transaction('f').objectStore('f').get(k); rq.onsuccess = () => res(rq.result || null); rq.onerror = () => res(null); } catch (e) { res(null); } });
+const idbPut = (k, v) => { try { if (db) db.transaction('f', 'readwrite').objectStore('f').put(v, k); } catch (e) {} };
+const fkey = (s, i) => `${VER}:${s.key}:${s.W}x${s.H}:${N}:${i}`;
+
+/* ---------- baking scheduler ---------- */
+let renderer = null, noGL = false, busy = false;
+const raf = () => new Promise(r => requestAnimationFrame(() => r()));
+function visScore(s){
+  let best = 99;
+  const vh = innerHeight;
+  for (const p of s.players) {
+    const r = p.el.getBoundingClientRect();
+    if (!r.width) continue;
+    const inX = r.right > -10 && r.left < innerWidth + 10;
+    let d = (r.bottom > 0 && r.top < vh) ? (inX ? 0 : 0.6) : (r.top >= vh ? (r.top - vh) / vh : -r.bottom / vh);
+    best = Math.min(best, d);
+  }
+  return best;
+}
+function pick(){
+  let best = null, bs = Infinity;
+  for (const s of Object.values(SHOTS)) {
+    if (!s.players.length || s.next >= ORDER.length) continue;
+    const v = visScore(s);
+    const pen = v < 0.01 ? 0 : v < 1.6 ? 25 : 45 + Math.min(v, 6) * 2;
+    const sc = levelOf(s.next) * 10 + pen + (s.bias || 0);
+    if (sc < bs) { bs = sc; best = s; }
+  }
+  return best;
+}
+async function pump(){
+  if (busy || noGL) return;
+  busy = true;
+  try {
+    for (;;) {
+      if (window.SP_PAUSE) break;
+      const s = pick();
+      if (!s) break;
+      const idx = ORDER[s.next++];
+      let blob = await idbGet(fkey(s, idx));
+      if (!blob) {
+        if (!renderer) { try { renderer = new JewelRenderer(); } catch (e) { noGL = true; console.warn('WebGL2 non disponibile', e); break; } }
+        const u = N > 1 ? idx / (N - 1) : 0;
+        blob = await renderer.render(s.fn(u, s.W / s.H, s.m), s.W, s.H, {aa:1, yieldFn:raf, quality:0.86});
+        if (blob) idbPut(fkey(s, idx), blob);
+      }
+      if (blob) { s.frames[idx] = blob; s.avail.push(idx); s.avail.sort((a, b) => a - b); }
+    }
+  } catch (e) { console.warn(e); }
+  busy = false;
+}
+
+/* ---------- players: slow ping-pong through the baked frames, cross-dissolving neighbours ---------- */
+class Player {
+  constructor(el){
+    this.el = el; this.cv = el.querySelector('canvas'); this.ctx = this.cv.getContext('2d');
+    const k = MOB && el.dataset.shotM ? el.dataset.shotM : el.dataset.shot;
+    this.s = SHOTS[k]; this.s.players.push(this);
+    const f = ((MOB && el.dataset.focusM) || el.dataset.focus || '.5,.5').split(',').map(Number);
+    this.fx = f[0]; this.fy = f[1];
+    this.T = (k.startsWith('p-') ? 11 : 15) * 1000;
+    this.ph = Math.random();
+    this.cache = new Map(); this.pend = new Set();
+    this.shown = false; this.cw = 0; this.ch = 0;
+  }
+  want(i){
+    if (this.cache.has(i) || this.pend.has(i)) return;
+    const b = this.s.frames[i]; if (!b) return;
+    this.pend.add(i);
+    const done = bm => { this.pend.delete(i); if (bm) this.cache.set(i, bm); };
+    if (window.createImageBitmap) createImageBitmap(b).then(done, () => done(null));
+    else { const im = new Image(); im.onload = () => done(im); im.onerror = () => done(null); im.src = URL.createObjectURL(b); }
+  }
+  evict(f){
+    if (this.cache.size <= 6) return;
+    const ks = [...this.cache.keys()].sort((a, b) => Math.abs(b - f) - Math.abs(a - f));
+    while (this.cache.size > 6) { const k = ks.shift(); const bm = this.cache.get(k); if (bm && bm.close) bm.close(); this.cache.delete(k); }
+  }
+  nearestDecoded(f){
+    let best = null, bd = Infinity;
+    for (const k of this.cache.keys()) { const d = Math.abs(k - f); if (d < bd) { bd = d; best = k; } }
+    return best;
+  }
+  draw(t){
+    const av = this.s.avail; if (!av.length) return;
+    const r = this.el.getBoundingClientRect();
+    if (r.bottom < -50 || r.top > innerHeight + 50 || r.right < -50 || r.left > innerWidth + 50 || !r.width) return;
+    const dpr = Math.min(devicePixelRatio || 1, 1.5);
+    const cw = Math.round(r.width * dpr), ch = Math.round(r.height * dpr);
+    if (cw !== this.cw || ch !== this.ch) { this.cv.width = this.cw = cw; this.cv.height = this.ch = ch; }
+    const u = RM ? 0.5 : 0.5 - 0.5 * Math.cos(2 * Math.PI * (t / this.T + this.ph));
+    const f = u * (N - 1);
+    let lo = av[0], hi = av[av.length - 1];
+    for (const i of av) { if (i <= f) lo = i; if (i >= f) { hi = i; break; } }
+    if (hi < lo) hi = lo;
+    this.want(lo); this.want(hi);
+    const dirNext = av.find(i => i > hi), dirPrev = [...av].reverse().find(i => i < lo);
+    if (dirNext != null) this.want(dirNext);
+    if (dirPrev != null) this.want(dirPrev);
+    this.evict(f);
+    let A = this.cache.get(lo), B = this.cache.get(hi), a = hi > lo ? (f - lo) / (hi - lo) : 0;
+    if (!A && !B) { const n = this.nearestDecoded(f); if (n == null) return; A = this.cache.get(n); B = null; }
+    else if (!A) { A = B; B = null; } else if (!B) B = null;
+    const ctx = this.ctx;
+    const iw = A.width, ih = A.height, sc = Math.max(cw / iw, ch / ih);
+    const dw = iw * sc, dh = ih * sc;
+    const dx = clamp(cw * this.fx - dw * this.fx, cw - dw, 0), dy = clamp(ch * this.fy - dh * this.fy, ch - dh, 0);
+    ctx.globalAlpha = 1; ctx.drawImage(A, dx, dy, dw, dh);
+    if (B && B !== A && a > 0.003) { ctx.globalAlpha = a; ctx.drawImage(B, dx, dy, dw, dh); ctx.globalAlpha = 1; }
+    if (!this.shown) { this.shown = true; this.el.classList.add('on'); }
+  }
+}
+const players = $$('.live[data-shot]').map(el => new Player(el));
+
+/* ---------- manifesto words ---------- */
+(function(){
+  const p = $('#mtext');
+  const words = p.textContent.trim().split(/\s+/);
+  p.innerHTML = words.map(w => /^\*.*\*[.,:]?$/.test(w) ? `<span class="w g">${w.replace(/\*/g, '')}</span>` : `<span class="w">${w}</span>`).join(' ');
+})();
+const mWords = $$('#mtext .w');
+
+/* ---------- intro logo letters ---------- */
+$('#il2').innerHTML = 'SPECIALE'.split('').map((c, i) => `<span style="animation-delay:${0.35 + i * 0.07}s">${c}</span>`).join('');
+
+/* ---------- scroll scenes ---------- */
+const pins = $$('[data-pin]');
+const track = $('#track'), hsN = $('#hsN');
+const panelNames = ['Collezioni', 'Promessa', 'Zagara', 'Mare Nostrum', 'Riviera'];
+const frame = $('#frame');
+function sizePins(){
+  const hs = $('#collezioni');
+  hs.style.height = `calc(var(--vh) * ${track.children.length} + ${0}px)`;
+}
+sizePins();
+const scenes = {
+  manifesto(p){ const n = mWords.length; mWords.forEach((w, i) => { const t = i / n * 0.8 + 0.05; const o = 0.13 + 0.87 * clamp((p - t) / 0.07, 0, 1); if (w._o !== o) { w._o = o; w.style.opacity = o.toFixed(3); } }); },
+  aurea(p){ frame.style.setProperty('--a', clamp(p / 0.6, 0, 1).toFixed(3)); },
+  collezioni(p, el){
+    const max = track.scrollWidth - innerWidth;
+    track.style.transform = `translate3d(${(-p * max).toFixed(1)}px,0,0)`;
+    const i = Math.round(p * (track.children.length - 1));
+    if (hsN._i !== i) { hsN._i = i; hsN.textContent = panelNames[i] || ''; }
+  }
+};
+const nav = $('#nav');
+let lastY = scrollY;
+const rvEls = () => $$('.rv:not(.in)');
+let rvList = rvEls();
+function checkReveal(){
+  const vh = innerHeight;
+  if (!rvList.length) return;
+  rvList = rvList.filter(el => { const r = el.getBoundingClientRect(); if (r.top < vh * 0.9 && r.bottom > 0) { el.classList.add('in'); onReveal(el); return false; } return true; });
+}
+function onReveal(el){
+  el.querySelectorAll('[data-count]').forEach(n => {
+    const to = parseFloat(n.dataset.count), dec = +n.dataset.dec, t0 = performance.now();
+    const step = now => { const k = clamp((now - t0) / 1600, 0, 1), e = 1 - Math.pow(1 - k, 3); n.textContent = (to * e).toFixed(dec).replace('.', ','); if (k < 1) requestAnimationFrame(step); };
+    if (!RM) requestAnimationFrame(step);
+  });
+}
+function tick(t){
+  const vh = innerHeight;
+  for (const s of pins) {
+    const r = s.getBoundingClientRect();
+    const span = r.height - vh;
+    const p = span > 0 ? clamp(-r.top / span, 0, 1) : 0;
+    if (s._p !== p) { s._p = p; s.style.setProperty('--p', p.toFixed(4)); const f = scenes[s.id]; if (f) f(p, s); }
+  }
+  const y = scrollY;
+  nav.classList.toggle('solid', y > vh * 0.5);
+  nav.classList.toggle('hide', y > vh * 1.2 && y > lastY + 2);
+  if (y < lastY - 2) nav.classList.remove('hide');
+  lastY = y;
+  checkReveal();
+  for (const pl of players) pl.draw(t);
+  requestAnimationFrame(tick);
+}
+
+/* ---------- film grain ---------- */
+(function(){
+  const c = $('#grain'), n = 192; c.width = c.height = n;
+  const x = c.getContext('2d'), d = x.createImageData(n, n);
+  for (let i = 0; i < d.data.length; i += 4) { const v = Math.random() * 255; d.data[i] = d.data[i + 1] = d.data[i + 2] = v; d.data[i + 3] = 255; }
+  x.putImageData(d, 0, 0);
+  const url = c.toDataURL();
+  c.style.backgroundImage = `url(${url})`; c.style.backgroundSize = '192px'; c.width = c.height = 1;
+  c.style.width = '200%'; c.style.height = '200%';
+})();
+
+/* ---------- cursor ---------- */
+(function(){
+  if (!matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+  const cur = $('#cur'); let tx = 0, ty = 0, cx = 0, cy = 0;
+  addEventListener('pointermove', e => { tx = e.clientX; ty = e.clientY; cur.classList.add('on'); cur.classList.toggle('big', !!e.target.closest('a,button')); }, {passive:true});
+  document.addEventListener('pointerleave', () => cur.classList.remove('on'));
+  (function loop(){ cx = lerp(cx, tx, 0.18); cy = lerp(cy, ty, 0.18); cur.style.transform = `translate3d(${cx}px,${cy}px,0)`; requestAnimationFrame(loop); })();
+})();
+
+/* ---------- menu + copy ---------- */
+$('#menuB').addEventListener('click', () => $('#mmenu').classList.add('on'));
+$('#menuX').addEventListener('click', () => $('#mmenu').classList.remove('on'));
+$$('#mmenu a').forEach(a => a.addEventListener('click', () => $('#mmenu').classList.remove('on')));
+$$('[data-copy]').forEach(b => b.addEventListener('click', () => {
+  const v = b.dataset.copy, ok = () => { b.textContent = 'Copiato'; setTimeout(() => b.textContent = 'Copia', 1600); };
+  try { navigator.clipboard.writeText(v).then(ok, () => { const r = document.createRange(); r.selectNodeContents(b.previousSibling || b.parentNode); getSelection().removeAllRanges(); getSelection().addRange(r); }); } catch (e) {}
+}));
+$$('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+  const id = a.getAttribute('href').slice(1); const el = id && document.getElementById(id);
+  if (!el) return; e.preventDefault();
+  window.scrollTo({top:el.getBoundingClientRect().top + scrollY - (id === 'collezioni' || id === 'aurea' ? 0 : 60), behavior:RM ? 'auto' : 'smooth'});
+}));
+
+/* ---------- intro ---------- */
+const intro = $('#intro'), ist = $('#ist');
+const heroShot = SHOTS[MOB ? 'hero-m' : 'hero'];
+const t0 = performance.now();
+let introDone = false;
+function endIntro(){
+  if (introDone) return; introDone = true;
+  intro.classList.add('out');
+  setTimeout(() => { const h = $('#heroIn'); h && h.classList.add('in'); }, 250);
+  setTimeout(() => intro.remove(), 1600);
+}
+intro.addEventListener('click', endIntro);
+(function waitIntro(){
+  if (introDone) return;
+  const el = performance.now() - t0;
+  const ready = heroShot.avail.length;
+  if (ready) ist.textContent = 'Luci accese';
+  if ((el > (RM ? 300 : 2400) && (ready >= 1 || noGL)) || el > 4200) endIntro();
+  else setTimeout(waitIntro, 120);
+})();
+addEventListener('resize', () => { sizePins(); rvList = rvEls(); });
+
+/* ---------- boot ---------- */
+idbOpen().then(() => { pump(); setInterval(() => { if (!busy) pump(); }, 700); });
+requestAnimationFrame(tick);
+addEventListener('scroll', () => { if (!busy) pump(); }, {passive:true});
+})();
+
+</script>
+</body>
+</html>
